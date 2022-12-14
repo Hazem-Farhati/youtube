@@ -1,0 +1,26 @@
+.profileHeader{
+    width: 82%;
+    margin-left: 18%;
+    height: 200px;
+    background-color: aqua;
+}
+
+.profileHeader .info{
+    width: 70%;
+    height: 100%;
+    background-color: blue;
+}
+
+.profileHeader .info .donne1{
+    width: 100%;
+    height: 75%; 
+    background-color: green;
+    /* display: flex; */
+
+
+}
+
+
+.profileHeader .info .donne2{
+
+}

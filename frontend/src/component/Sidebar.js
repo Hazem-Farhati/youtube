@@ -1,17 +1,18 @@
 import React from "react";
 import "../styles/sidebar.css";
 import HomeIcon from "@mui/icons-material/Home";
+import { Link } from "react-router-dom";
 const Sidebar = ({ show, setShow }) => {
   return (
     <>
       {show && (
         <div className="sideBar">
           <div className="firstSide">
-            <div className="option">
+            <Link to="/"><div className="option">
                 <i className="bx bx-home sideBarIcon"></i>
                 <h4>Accueil</h4>
                 
-            </div>
+            </div></Link>
             <div className="option">
               <i class="bx bx-caret-right sideBarIcon"></i>
               <h4>Shorts</h4>

@@ -38,7 +38,7 @@ userRouter.post("/register", registerRules(), Validation, async (req, res) => {
 
     require("dotenv").config();
     const token = await jwt.sign(payload, process.env.SecretOrKey, {
-      expiresIn: 1000 * 60 * 60 * 24,
+      expiresIn: 360000000000000,
     });
 
     //**********
@@ -72,7 +72,7 @@ userRouter.post("/login",loginRules(),Validation, async (req, res) => {
     // cree token
     const payload = { _id: searchedUser._id };
     const token = await jwt.sign(payload, process.env.SecretOrKey, {
-      expiresIn: 3600,
+      expiresIn: 36000000000000,
     });
     console.log(token);
 

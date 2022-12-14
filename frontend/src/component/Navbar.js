@@ -12,12 +12,14 @@ import {
 import Sidebar from "./Sidebar";
 import ParametreGenerale from "./ParametreGenerale";
 import { Link } from "react-router-dom";
-const Navbar = ({search,setsearch}) => {
+const Navbar = ({ search, setsearch }) => {
   const [show, setShow] = useState(true);
   const [parameterShow, setParameterShow] = useState(false);
   const searchProduct = (search) => {
     setsearch(search);
   };
+  const isAuth = localStorage.getItem("token");
+
   return (
     <>
       <Sidebar show={show} setShow={setShow} />
@@ -31,7 +33,7 @@ const Navbar = ({search,setsearch}) => {
           <div className="menuIcon" onClick={() => setShow(!show)}>
             <i class="bx bx-list-ul"></i>
           </div>
-          <img src="/assets/youtubelogo.png" alt="logo" />
+          <Link to="/"><img src="/assets/youtubelogo.png" alt="logo" /></Link>
         </div>
 
         <div className="middle">
@@ -48,9 +50,11 @@ const Navbar = ({search,setsearch}) => {
           {!parameterShow ? (
             <>
               {" "}
-              <Link to="/addVideo">
+              {isAuth?<Link to="/addVideo">
                 <i class="bx bx-video"></i>
-              </Link>
+              </Link>:<Link to="/register">
+                <i class="bx bx-video"></i>
+              </Link>}
               <i class="bx bx-bell"></i>
             </>
           ) : null}
