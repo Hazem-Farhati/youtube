@@ -32,7 +32,7 @@ const Login = () => {
             }, 1500);
           }}
         >
-          Login
+          Loogin
         </button>
       </div>
     </div>
