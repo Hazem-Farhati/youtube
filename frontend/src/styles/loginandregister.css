@@ -1,0 +1,42 @@
+.container{
+    width: 30%;
+    height: auto;
+border: 1px gray solid;    
+   margin:0 auto;
+}
+.container .header{
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100px;
+}
+.container .input{
+    height: 350px;
+    display: flex;
+    justify-content: center;
+   flex-wrap:wrap;
+   margin-top: 35px;
+}
+.container .input input{
+    width: 90%;
+    height: 35px;
+}
+.container .footer{
+    display: flex;
+justify-content: flex-end;
+padding: 20px;
+align-items: center;
+border-radius: 10px;
+}
+.container .footer button{
+    width: 100px;
+    height: 35px;
+    background-color: rgb(7,96,212);
+    color: white;
+    font-size: 18px;
+    font-weight: 300;
+    border-radius: 10px;
+}
+.container .input input::placeholder{
+    padding-left: 10px;
+}

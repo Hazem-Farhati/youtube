@@ -1,0 +1,46 @@
+.sideBar {
+  /* background-color: yellow; */
+  width: 250px;
+  height: 50rem;
+  z-index: 99999;
+  position: fixed;
+  top: 70px;
+  overflow: scroll;
+  scrollbar-color: #6969dd #e0e0e0;
+}
+.sideBar::-webkit-scrollbar {
+  width: 10px;
+  height: 10%;
+  color: black;
+  border-radius: 50px;
+
+}
+.sideBar::-webkit-scrollbar-thumb {
+  background-color: #c8c3bc;
+  border-radius: 100px;
+}
+.firstSide {
+  /* border-bottom: 1px black solid; */
+}
+.option {
+  display: flex;
+  width: 90%;
+  height:50px ;
+  background-color: white;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 10%;
+  gap: 20px;
+}
+.option h4{
+  padding-right: 15px;
+  font-weight: 400;
+
+}
+.sideBarIcon {
+  font-size: 25px;
+}
+.hr_sidebar {
+  width: 90%;
+  color: gray;
+}
