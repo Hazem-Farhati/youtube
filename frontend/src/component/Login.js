@@ -9,7 +9,6 @@ const Login = () => {
 
   const [login, setlogin] = useState({
     email: "",
-
     password: "",
   });
 
@@ -33,7 +32,7 @@ const Login = () => {
             }, 1500);
           }}
         >
-          login
+          Login
         </button>
       </div>
     </div>
