@@ -1,0 +1,10 @@
+.profileacceuil{
+    background-color: red;
+    width: 75%;
+    height: max-content;
+    margin-left: 20%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+
+}

@@ -1,0 +1,63 @@
+.allvideocard {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 270px;
+    width: 80%;
+    height: max-content;
+    gap: 30px;
+  }
+  .containerCard {
+    margin-top: 20px;
+    width: 330px;
+    height: 290px;
+    background-color: white;
+    border-radius: 20px;
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+  }
+  .containerCard iframe {
+    width: 99.9%;
+    height: 180px;
+    border-radius: 15px;
+  }
+  .donne {
+    /* background-color: blueviolet; */
+  }
+  .donne .title h3 {
+    margin-top: 0;
+    font-size: 17px;
+    width: 95%;
+    text-align: justify;
+    padding-left: 5px;
+    margin-bottom: 5px;
+  }
+  .donne .title p {
+    font-size: 12px;
+    color: gray;
+    margin-top: 5px;
+    width: 95%;
+    text-align: justify;
+    padding-left: 5px;
+    margin-bottom: 5px;
+  }
+  .donne .viewdate {
+    width: 80%;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-left: 10px;
+    font-size: 13px;
+  }
+  .viewdate h2 {
+    display: flex;
+    height: 100%;
+    align-items: flex-end;
+    color: gray;
+  }
+  /* .viewdate h2{
+      display: flex;
+      align-items: flex-start;
+      background-color: #fff;
+  } */
+  

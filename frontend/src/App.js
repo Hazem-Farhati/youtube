@@ -11,6 +11,9 @@ import Login from "./component/Login";
 import Register from "./component/Register";
 import Profil from "./pages/Profil";
 import PrivateRoute from "./privateRoutes/PrivateRoutes";
+import { userCurrent } from "./redux/userSlice/userSlice";
+import ProfileAcceuil from "./component/ProfileAcceuil";
+import ProfileVideo from "./component/ProfileVideo";
 
 function App() {
   const [ping, setPing] = useState(false);
@@ -18,10 +21,10 @@ function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getProduct());
-  }, [dispatch,ping]);
+    dispatch(userCurrent());
+  }, [dispatch, ping]);
   const [search, setsearch] = useState("");
 
-  
   return (
     <div className="App">
       <Navbar search={search} setsearch={setsearch} />
@@ -33,13 +36,25 @@ function App() {
         <Route path="/uploadVideo" element={<Upload />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />{" "}
-        <Route element={<PrivateRoute />}>
-          <Route path="/profile" element={<Profil />} />
-        </Route>
         <Route
           path="/"
           element={<Home search={search} setsearch={setsearch} />}
         />
+        <Route element={<PrivateRoute />}>
+          <Route
+            path="/profil"
+            element={<Profil ping={ping} setPing={setPing} />}
+          >
+            <Route
+              path="profilaccueil"
+              element={<ProfileAcceuil  />}
+            />
+            <Route
+              path="profilvideo"
+              element={<ProfileVideo  />}
+            />
+          </Route>
+        </Route>
       </Routes>
     </div>
   );
