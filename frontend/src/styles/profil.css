@@ -4,6 +4,7 @@
     height: 180px;
     border-bottom: 1px solid gray;
     display: flex;
+    margin-bottom:20px;
 }
 
 .profileHeader .info{

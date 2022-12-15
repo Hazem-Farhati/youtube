@@ -43,7 +43,7 @@ const Login = () => {
           onClick={() => {
             dispatch(userLogin(login));
             setTimeout(() => {
-              navigate("/profile");
+              navigate("/profil");
             }, 1500);
           }}
         >

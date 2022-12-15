@@ -46,7 +46,7 @@ const Register = () => {
         </Link>
       </div>
       <div className="footer">
-        <Link to='/profile'>
+        <Link to='/profil'>
         <button
           onClick={() => {
             dispatch(userRegister(register));

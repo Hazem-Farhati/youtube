@@ -20,6 +20,7 @@ const AddVideo = ({ ping, setPing }) => {
 
   const [showAdd, setShowAdd] = useState(true);
   const navigate = useNavigate();
+  const user = useSelector((state) => state.user?.user);
 
   const product = useSelector((state) => state.product?.product);
 
@@ -53,6 +54,7 @@ const AddVideo = ({ ping, setPing }) => {
         title,
         desc,
         video: url,
+        user_id: user?._id,
       })
     );
     setPing(!ping);

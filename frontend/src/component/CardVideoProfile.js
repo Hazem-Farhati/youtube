@@ -1,18 +1,18 @@
+import "../styles/cardvideoprofile.css";
 import React from "react";
 const CardVideoProfile = ({ el }) => {
   return (
     <div>
-      <div className="containerCard">
-        <div className="video">
+      <div className="containerCard_p">
+        <div className="video_p">
           <iframe src={el.video} controls="0" frameborder="0" scrolling="no" />
-          <img src={el.video} alt="hey" />
         </div>
-        <div className="donne">
-          <div className="title">
+        <div className="donne_p">
+          <div className="title_p">
             <h3>{el.title}</h3>
             <p>chanel name</p>
           </div>
-          <div className="viewdate">
+          <div className="viewdate_p">
             <p>2 M vue</p>
             <h2>.</h2>
             <p>{el.date} </p>
