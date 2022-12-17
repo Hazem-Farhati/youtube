@@ -33,7 +33,6 @@
   border-right: none;
   font-size: 20px;
   padding-left: 20px;
-  
 }
 .middle input::placeholder {
   padding-left: 10px;
@@ -113,4 +112,32 @@
   background-color: rgba(128, 128, 128, 0.236);
   border-radius: 50%;
   cursor: pointer;
+}
+.signyoutube {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 37px;
+  background-color: transparent;
+  border: 1px solid blue;
+  border-radius: 20px;
+  gap:5px;
+  cursor: pointer;
+
+}
+.signyoutube button {
+  background-color: transparent;
+  border: none;
+  color: blue;
+  font-weight: 700;
+
+}
+.signyoutube .bx-user-circle{
+  color: blue;
+  font-size: 23px;
+}
+
+.signyoutube:hover{
+  background-color: rgba(6, 6, 253, 0.204);
 }

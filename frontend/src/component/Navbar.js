@@ -11,7 +11,7 @@ import {
 } from "@iconscout/react-unicons";
 import Sidebar from "./Sidebar";
 import ParametreGenerale from "./ParametreGenerale";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Navbar = ({ search, setsearch }) => {
   const [show, setShow] = useState(true);
   const [parameterShow, setParameterShow] = useState(false);
@@ -19,7 +19,7 @@ const Navbar = ({ search, setsearch }) => {
     setsearch(search);
   };
   const isAuth = localStorage.getItem("token");
-
+  const navigate = useNavigate();
   return (
     <>
       <Sidebar show={show} setShow={setShow} />
@@ -33,7 +33,9 @@ const Navbar = ({ search, setsearch }) => {
           <div className="menuIcon" onClick={() => setShow(!show)}>
             <i class="bx bx-list-ul"></i>
           </div>
-          <Link to="/"><img src="/assets/youtubelogo.png" alt="logo" /></Link>
+          <Link to="/">
+            <img src="/assets/youtubelogo.png" alt="logo" />
+          </Link>
         </div>
 
         <div className="middle">
@@ -46,26 +48,38 @@ const Navbar = ({ search, setsearch }) => {
             <i className="bx bx-search "></i>
           </div>
         </div>
-        <div className="rightSide">
-          {!parameterShow ? (
-            <>
-              {" "}
-              {isAuth?<Link to="/addVideo">
-                <i class="bx bx-video"></i>
-              </Link>:<Link to="/register">
-                <i class="bx bx-video"></i>
-              </Link>}
-              <i class="bx bx-bell"></i>
-            </>
-          ) : null}
+        {isAuth ? (
+          <div className="rightSide">
+            {!parameterShow ? (
+              <>
+                {" "}
+                {isAuth ? (
+                  <Link to="/addVideo">
+                    <i class="bx bx-video"></i>
+                  </Link>
+                ) : (
+                  <Link to="/register">
+                    <i class="bx bx-video"></i>
+                  </Link>
+                )}
+                <i class="bx bx-bell"></i>
+              </>
+            ) : null}
 
-          <i
-            class="bx bx-user-circle"
-            onClick={() => {
-              setParameterShow(!parameterShow);
-            }}
-          ></i>
-        </div>
+            <i
+              class="bx bx-user-circle"
+              onClick={() => {
+                setParameterShow(!parameterShow);
+              }}
+            ></i>
+          </div>
+        ) : (
+          <div onClick={() => navigate("/register")} className="signyoutube">
+            {" "}
+            <i class="bx bx-user-circle"></i>
+            <button >Sign In</button>
+          </div>
+        )}
         <ParametreGenerale />
       </div>
     </>

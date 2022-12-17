@@ -8,7 +8,7 @@ const userSchema = new schema({
   lastname: { type: String, required: true },
   email: String,
   password: String,
-  image: { type: String },
+  image: { type: String ,default:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIZZZcfFeMiHPbuND7zck8rlcn6epFAnvuGBELtiSpQd2SP5HjGlSusp8fCfgr6NNQfUE&usqp=CAU" },
 
   date: Date,
 });
