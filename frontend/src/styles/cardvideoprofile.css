@@ -18,9 +18,7 @@
     height: 180px;
     border-radius: 15px;
   }
-  .donne_p {
-    /* background-color: blueviolet; */
-  }
+
   .donne_p .title_p h3 {
     margin-top: 0;
     font-size: 17px;
@@ -60,3 +58,15 @@
       background-color: #fff;
   } */
   
+  .donne_p .title_p .imgChaine_p{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    
+  }
+  .donne_p .chaineuser_p{
+    width: 70%;
+    height: max-content;
+    display: flex;
+
+  }

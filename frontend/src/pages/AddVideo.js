@@ -8,7 +8,6 @@ import { createProduct } from "../redux/productSlice/productSlice";
 import "../styles/addvideo.css";
 import axios from "axios";
 import "../styles/addvideo.css";
-import { Cursor } from "mongoose";
 
 const AddVideo = ({ ping, setPing }) => {
   const dispatch = useDispatch();
@@ -48,6 +47,7 @@ const AddVideo = ({ ping, setPing }) => {
       })
       .catch((err) => console.log(err));
   };
+  
   const handleSave = () => {
     dispatch(
       createProduct({
@@ -59,6 +59,7 @@ const AddVideo = ({ ping, setPing }) => {
     );
     setPing(!ping);
   };
+  
   return (
     <>
       {product?.map((el) => (

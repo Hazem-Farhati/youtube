@@ -7,6 +7,7 @@ const productSchema = new schema({
   desc: { type: String },
   video: String,
   date: Date,
+ 
   user_id: { type: String }
 });
 

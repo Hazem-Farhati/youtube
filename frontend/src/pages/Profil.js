@@ -4,16 +4,17 @@ import { useDispatch, useSelector } from "react-redux";
 import "../styles/profil.css";
 import { updateUser } from "../redux/userSlice/userSlice";
 import axios from "axios";
-const Profil = () => {
+const Profil = ({ping,setPing}) => {
   const user = useSelector((state) => state.user?.user);
   const [show, setShow] = useState(false);
   const location = useLocation()
   const dispatch = useDispatch()
-
+const isAuth=localStorage.getItem('token')
 
 //update photo profife
 const [file, setFile] = useState("");
   const [url, setUrl] = useState("");
+
   // dsrmckm1q
   // preset name : msa2hvog
   const uploadImage = async () => {
@@ -26,28 +27,32 @@ const [file, setFile] = useState("");
         setUrl(result.data.secure_url);
         dispatch(
           updateUser({
-          
+          ...user,user:{image:result.data.secure_url},
             id: user?._id,
-            user:{image:url}
+           
           })
         );
-        console.log(url, "url");
+        // console.log(url, "url");
       })
       .catch((err) => console.log(err));
+      setPing(!ping);
+
   };
 
 
   return (
     <div>
       <div className="profileHeader">
+     
         <div className="info">
           <div className="donne1">
+      
             <div className="photo">
-              <input type="file" onChange={(e)=>setFile(e.target.files[0])}/>
-              <button onClick={uploadImage}>dffd</button>
+              
+                <img  className="bx bx-user-circle" src={user?.image}/>     
+              { file?<button onClick={uploadImage}>change</button>: < input style={{width:"50px"}} type="file" onChange={(e)=>setFile(e.target.files[0])}/>
+              }
 
-              <i class="bx bx-user-circle"></i>
-        <img style={{width:"50px",height:"50px"}} src={user?.image} alt="photo"/>
             </div>
             <div className="names">
               <h2>{user?.name}</h2>
@@ -98,6 +103,7 @@ const [file, setFile] = useState("");
         </div>
       </div>
       {console.log(user)} <Outlet />
+
     </div>
   );
 };

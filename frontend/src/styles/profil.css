@@ -24,7 +24,18 @@ padding: 20px 47px;
 
 
 .donne1 .photo .bx-user-circle{
-font-size: 80px;}
+border-radius: 50%;
+width: 70px;
+height: 70px;
+}
+.donne1 .photo{
+    width: 100px;
+    height: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
 
 .profileHeader .info .donne2{
     width: 100%;
