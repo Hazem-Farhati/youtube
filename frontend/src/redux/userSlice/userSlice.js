@@ -70,7 +70,12 @@ const initialState = {
 export const userSlice = createSlice({
   name: "user",
   initialState,
-  reducers: {},
+  reducers: {
+    logout:(state,action)=>{
+      state.user=null;
+      localStorage.removeItem('token')
+    }
+  },
 
   extraReducers: {
     //register extra reducers
@@ -142,5 +147,5 @@ export const userSlice = createSlice({
     },
   },
 });
-
+export const {logout}=userSlice.actions;
 export default userSlice.reducer;

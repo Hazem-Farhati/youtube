@@ -17,11 +17,15 @@ import ProfileVideo from "./component/ProfileVideo";
 
 function App() {
   const [ping, setPing] = useState(false);
+  const isAuth = localStorage.getItem("token");
 
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getProduct());
-    dispatch(userCurrent());
+ if(isAuth){
+  dispatch(userCurrent());
+ }
+ dispatch(getProduct());
+
   }, [dispatch, ping]);
   const [search, setsearch] = useState("");
 
@@ -43,15 +47,15 @@ function App() {
         <Route element={<PrivateRoute />}>
           <Route
             path="/profil"
-            element={<Profil ping={ping} setPing={setPing} />}
+            element={<Profil ping={ping} setPing={setPing} setsearch={setsearch} />}
           >
             <Route
               path="profilaccueil"
-              element={<ProfileAcceuil  />}
+              element={<ProfileAcceuil search={search} setsearch={setsearch}  />}
             />
             <Route
               path="profilvideo"
-              element={<ProfileVideo  />}
+              element={<ProfileVideo  search={search} setsearch={setsearch}/>}
             />
           </Route>
         </Route>

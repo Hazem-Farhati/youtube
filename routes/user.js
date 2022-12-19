@@ -133,19 +133,19 @@ userRouter.delete("/delete/:id", async (req, res) => {
     res.status(400).send({ msg: "can not delete user" });
   }
 });
-//put
-userRouter.put("/update/:id", async (req, res) => {
-  try {
-    const result = await User.findOneAndUpdate(
-      { _id: req.params.id },
-      { $set: { ...req.body } },
-      { new: true }
-    );
-    res.send({ Response: result, message: "User updated" });
-  } catch (error) {
-    res.status(400).send({ message: `can not update this User` });
-  }
-});
+// //put
+// userRouter.put("/update/:id", async (req, res) => {
+//   try {
+//     const result = await User.findOneAndUpdate(
+//       { _id: req.params.id },
+//       { $set: { ...req.body } },
+//       { new: true }
+//     );
+//     res.send({ Response: result, message: "User updated" });
+//   } catch (error) {
+//     res.status(400).send({ message: `can not update this User` });
+//   }
+// });
 
 //delete all
 userRouter.delete("/:title", async (req, res) => {

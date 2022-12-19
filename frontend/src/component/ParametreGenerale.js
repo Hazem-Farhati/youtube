@@ -1,11 +1,13 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { logout } from "../redux/userSlice/userSlice";
 
 const ParametreGenerale = ({ setParameterShow, parameterShow }) => {
     const navigate = useNavigate();
   const user = useSelector((state) => state.user?.user);
-
+  const isAuth = localStorage.getItem("token");
+  const dispatch = useDispatch();
   return (
     <>
       {parameterShow && (
@@ -15,7 +17,8 @@ const ParametreGenerale = ({ setParameterShow, parameterShow }) => {
         >
           <div className="firstContent">
             <div className="avatar" onClick={() => navigate("/profil/profilaccueil")}>
-              <i class="bx bx-user-circle"></i>
+           {isAuth? <img className="imgNavbar" onClick={() => {
+                setParameterShow(!parameterShow);}}   src={user?.image} alt='photo'/> : <i class="bx bx-user-circle"></i>}
             </div>
             <div className="pgdonne">
               <h4>{user?.name} {user?.lastname}</h4>
@@ -36,9 +39,9 @@ const ParametreGenerale = ({ setParameterShow, parameterShow }) => {
             <div className="options">
               <i class="bx bx-arrows-h-alt"></i> <h5>Changer du compte</h5>
             </div>
-            <div className="options">
+            <div onClick={()=>{dispatch(logout());navigate('/login')}} className="options">
               <i class="bx bx-user"></i>
-              <h5>Se deconnecter</h5>
+              <h5 >Se deconnecter</h5>
             </div>
           </div>
         </div>

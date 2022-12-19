@@ -12,6 +12,8 @@ import {
 import Sidebar from "./Sidebar";
 import ParametreGenerale from "./ParametreGenerale";
 import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import CardVideo from "./CardVideo";
 const Navbar = ({ search, setsearch }) => {
   const [show, setShow] = useState(true);
   const [parameterShow, setParameterShow] = useState(false);
@@ -20,6 +22,8 @@ const Navbar = ({ search, setsearch }) => {
   };
   const isAuth = localStorage.getItem("token");
   const navigate = useNavigate();
+  const user = useSelector((state) => state.user?.user);
+
   return (
     <>
       <Sidebar show={show} setShow={setShow} />
@@ -27,6 +31,7 @@ const Navbar = ({ search, setsearch }) => {
         parameterShow={parameterShow}
         setParameterShow={setParameterShow}
       />
+      
 
       <div className="navbar">
         <div className="leftSide">
@@ -66,12 +71,13 @@ const Navbar = ({ search, setsearch }) => {
               </>
             ) : null}
 
-            <i
+            {isAuth?<img className="imgNavbar" onClick={() => {
+                setParameterShow(!parameterShow);}}   src={user?.image} alt='photo'/>:<i
               class="bx bx-user-circle"
               onClick={() => {
                 setParameterShow(!parameterShow);
               }}
-            ></i>
+            ></i>}
           </div>
         ) : (
           <div onClick={() => navigate("/register")} className="signyoutube">

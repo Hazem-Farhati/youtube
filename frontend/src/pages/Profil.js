@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import "../styles/profil.css";
 import { updateUser } from "../redux/userSlice/userSlice";
 import axios from "axios";
-const Profil = ({ping,setPing}) => {
+const Profil = ({ping,setPing,setsearch}) => {
   const user = useSelector((state) => state.user?.user);
   const [show, setShow] = useState(false);
   const location = useLocation()
@@ -14,7 +14,9 @@ const isAuth=localStorage.getItem('token')
 //update photo profife
 const [file, setFile] = useState("");
   const [url, setUrl] = useState("");
-
+  const searchProduct = (search) => {
+    setsearch(search);
+  };
   // dsrmckm1q
   // preset name : msa2hvog
   const uploadImage = async () => {
@@ -50,7 +52,7 @@ const [file, setFile] = useState("");
             <div className="photo">
               
                 <img  className="bx bx-user-circle" src={user?.image}/>     
-              { file?<button onClick={uploadImage}>change</button>: < input style={{width:"50px"}} type="file" onChange={(e)=>setFile(e.target.files[0])}/>
+              { file?<button onClick={uploadImage}>change</button>: < input name="hhh" style={{width:"50px"}} type="file" onChange={(e)=>setFile(e.target.files[0])}/>
               }
 
             </div>
@@ -91,7 +93,7 @@ const [file, setFile] = useState("");
             <i onClick={() => setShow(!show)} className="bx bx-search "></i>
             {show && (
               <>
-                <input placeholder="Search" type="text" />
+                <input placeholder="Search" type="text" onChange={(e) => searchProduct(e.target.value)}/>
               </>
             )}
           </div>

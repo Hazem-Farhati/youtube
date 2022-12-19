@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import "../styles/cardvideo.css"
 const CardVideo = ({ el }) => {
   const user = useSelector((state) => state.user?.user);
-  
   return (
     <div>
       <div className="containerCard">
@@ -20,7 +19,7 @@ const CardVideo = ({ el }) => {
           <div className="viewdate">
             <p>2 M vue</p>
             <h2>.</h2>
-            <p>{el?.date} </p>
+            <p>{el?.date.split("T").map((el)=>el).slice(0,1)} </p>
           </div>
         </div>
       </div>

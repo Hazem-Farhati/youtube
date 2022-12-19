@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 import CardVideoProfile from './CardVideoProfile';
 
-const ProfileVideo = () => {
+const ProfileVideo = ({search}) => {
   const product = useSelector((state) => state.product?.product);
   const user = useSelector((state) => state.user?.user);
   const isAuth = localStorage.getItem("token");
@@ -12,7 +12,7 @@ const ProfileVideo = () => {
         {isAuth && (
           <>
             {product
-              ?.filter((el) => el?.user_id === user?._id)
+              ?.filter((el) => el?.user_id === user?._id).filter((el)=>el.title?.toLowerCase().includes(search.toLowerCase()))
               .map((el) => (
                 <div>
                   <CardVideoProfile el={el} />

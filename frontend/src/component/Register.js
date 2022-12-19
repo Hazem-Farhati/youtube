@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { userRegister } from "../redux/userSlice/userSlice";
 import "../styles/loginandregister.css";
 const Register = () => {
@@ -11,6 +11,7 @@ const Register = () => {
     password: "",
     email: "",
   });
+  const navigate=useNavigate()
   return (
     <div className="container" onSubmit={(e) => e.preventDefault()}>
       <div className="header">
@@ -46,15 +47,18 @@ const Register = () => {
         </Link>
       </div>
       <div className="footer">
-        <Link to='/profil'>
         <button
           onClick={() => {
-            dispatch(userRegister(register));
+            dispatch(userRegister(register))
+            setTimeout(() => {
+              navigate('/profil')
+            }, 1500);
+
+            
           }}
         >
           Register
         </button>
-        </Link>
       </div>
     </div>
   );

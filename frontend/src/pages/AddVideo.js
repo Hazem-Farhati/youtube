@@ -3,11 +3,11 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
-import UploadWidget from "../component/uploadwidget/UploadWidget";
+// import UploadWidget from "../component/uploadwidget/UploadWidget";
 import { createProduct } from "../redux/productSlice/productSlice";
 import "../styles/addvideo.css";
 import axios from "axios";
-import "../styles/addvideo.css";
+// import "../styles/addvideo.css";
 
 const AddVideo = ({ ping, setPing }) => {
   const dispatch = useDispatch();
@@ -55,6 +55,7 @@ const AddVideo = ({ ping, setPing }) => {
         desc,
         video: url,
         user_id: user?._id,
+        date:new Date()
       })
     );
     setPing(!ping);
@@ -62,7 +63,7 @@ const AddVideo = ({ ping, setPing }) => {
   
   return (
     <>
-      {product?.map((el) => (
+    
         <>
           {showAdd ? (
             <div className="addvideocontainer">
@@ -178,7 +179,7 @@ const AddVideo = ({ ping, setPing }) => {
             </div>
           ) : null}
         </>
-      ))}
+    
     </>
   );
 };
