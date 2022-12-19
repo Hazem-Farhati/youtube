@@ -3,19 +3,12 @@ import "../styles/navbar.css";
 import "../styles/pg.css";
 
 // import youtube from "/assets/youtubelogo.png";
-import {
-  UilBell,
-  UilUserCircle,
-  UilVideo,
-  UilSearch,
-} from "@iconscout/react-unicons";
+
 import Sidebar from "./Sidebar";
 import ParametreGenerale from "./ParametreGenerale";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import CardVideo from "./CardVideo";
-const Navbar = ({ search, setsearch }) => {
-  const [show, setShow] = useState(true);
+const Navbar = ({setwidth,setmarginLeft, search, setsearch,show, setShow }) => {
   const [parameterShow, setParameterShow] = useState(false);
   const searchProduct = (search) => {
     setsearch(search);
@@ -87,6 +80,9 @@ const Navbar = ({ search, setsearch }) => {
           </div>
         )}
         <ParametreGenerale />
+        {(show)?setwidth("80%"):setwidth('100%')}
+        {(show)?setmarginLeft("290px"):setmarginLeft('30px')}
+
       </div>
     </>
   );

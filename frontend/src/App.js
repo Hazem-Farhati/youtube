@@ -14,11 +14,17 @@ import PrivateRoute from "./privateRoutes/PrivateRoutes";
 import { userCurrent } from "./redux/userSlice/userSlice";
 import ProfileAcceuil from "./component/ProfileAcceuil";
 import ProfileVideo from "./component/ProfileVideo";
+import View from "./pages/View";
 
 function App() {
   const [ping, setPing] = useState(false);
   const isAuth = localStorage.getItem("token");
+  const [width, setwidth] = useState({width:"80%",width1:"330px"});
+  const [width1, setwidth1] = useState("");
+  // {console.log(width1)}
+  const [show, setShow] = useState(true);
 
+  const [marginLeft, setmarginLeft] = useState("");
   const dispatch = useDispatch();
   useEffect(() => {
  if(isAuth){
@@ -31,7 +37,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar search={search} setsearch={setsearch} />
+      <Navbar setwidth={setwidth} setwidth1={setwidth1} setmarginLeft={setmarginLeft} search={search} setsearch={setsearch} show={show} setShow={setShow} />
       <Routes>
         <Route
           path="/addVideo"
@@ -42,7 +48,7 @@ function App() {
         <Route path="/register" element={<Register />} />{" "}
         <Route
           path="/"
-          element={<Home search={search} setsearch={setsearch} />}
+          element={<Home setwidth1={setwidth1} width1={width1} width={width} marginLeft={marginLeft} search={search} setsearch={setsearch} show={show} setShow={setShow} />}
         />
         <Route element={<PrivateRoute />}>
           <Route
@@ -58,7 +64,10 @@ function App() {
               element={<ProfileVideo  search={search} setsearch={setsearch}/>}
             />
           </Route>
+
         </Route>
+        <Route path="/view" element={<View />} />{" "}
+
       </Routes>
     </div>
   );

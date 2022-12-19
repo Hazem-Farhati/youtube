@@ -3,14 +3,14 @@
   flex-wrap: wrap;
   /* margin-left: 270px; */
   /* width: 80%; */
-  background-color: yellow;
+  /* background-color: yellow; */
   height: max-content;
-  gap: 30px;
+  gap: 10px;
   
 }
 .containerCard {
   margin-top: 20px;
-  width: 330px;
+  /* width: 330px; */
   height: 290px;
   background-color: white;
   border-radius: 20px;
