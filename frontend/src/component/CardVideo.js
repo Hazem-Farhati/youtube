@@ -6,7 +6,7 @@ const CardVideo = ({ setwidth1, el, width1, width, show, setShow }) => {
   const user = useSelector((state) => state.user?.user);
   return (
     <>
-    <Link to={`/view/`}>
+    <Link to={`/view/${el?._id}`}>
     <div>
         {!show ?setwidth1("350px") :setwidth1("290px")}
       <div className="containerCard" style={{width:width1}} >

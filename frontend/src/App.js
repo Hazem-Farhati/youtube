@@ -37,7 +37,15 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar setwidth={setwidth} setwidth1={setwidth1} setmarginLeft={setmarginLeft} search={search} setsearch={setsearch} show={show} setShow={setShow} />
+      <Navbar
+        setwidth={setwidth}
+        setwidth1={setwidth1}
+        setmarginLeft={setmarginLeft}
+        search={search}
+        setsearch={setsearch}
+        show={show}
+        setShow={setShow}
+      />
       <Routes>
         <Route
           path="/addVideo"
@@ -48,26 +56,51 @@ function App() {
         <Route path="/register" element={<Register />} />{" "}
         <Route
           path="/"
-          element={<Home setwidth1={setwidth1} width1={width1} width={width} marginLeft={marginLeft} search={search} setsearch={setsearch} show={show} setShow={setShow} />}
+          element={
+            <Home
+              setwidth1={setwidth1}
+              width1={width1}
+              width={width}
+              marginLeft={marginLeft}
+              search={search}
+              setsearch={setsearch}
+              show={show}
+              setShow={setShow}
+            />
+          }
         />
         <Route element={<PrivateRoute />}>
           <Route
             path="/profil"
-            element={<Profil ping={ping} setPing={setPing} setsearch={setsearch} />}
+            element={
+              <Profil ping={ping} setPing={setPing} setsearch={setsearch} />
+            }
           >
             <Route
               path="profilaccueil"
-              element={<ProfileAcceuil search={search} setsearch={setsearch}  />}
+              element={<ProfileAcceuil search={search} setsearch={setsearch} />}
             />
             <Route
               path="profilvideo"
-              element={<ProfileVideo  search={search} setsearch={setsearch}/>}
+              element={<ProfileVideo search={search} setsearch={setsearch} />}
             />
           </Route>
-
         </Route>
-        <Route path="/view" element={<View />} />{" "}
-
+        <Route
+          path="/view/:id"
+          element={
+            <View
+              setwidth1={setwidth1}
+              width1={width1}
+              width={width}
+              marginLeft={marginLeft}
+              search={search}
+              setsearch={setsearch}
+              show={show}
+              setShow={setShow}
+            />
+          }
+        />{" "}
       </Routes>
     </div>
   );
