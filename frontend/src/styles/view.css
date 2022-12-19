@@ -1,5 +1,17 @@
+.all_view{
+display: flex;
+justify-content: flex-end;
+gap: 50px;
+}
 .view{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+width: 600px;
+height: 400px;
+background-color: green;
+}
+.view_right_side{
+    background-color: red;
+height: max-content;
+}
+.view_right_side .v_vid{
+ 
 }
