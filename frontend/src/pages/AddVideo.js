@@ -53,6 +53,9 @@ const AddVideo = ({ ping, setPing }) => {
       createProduct({
         title,
         desc,
+        user_image:user?.image,
+        name:user?.name,
+        lastname:user?.lastname,
         video: url,
         user_id: user?._id,
         date:new Date()
@@ -69,7 +72,7 @@ const AddVideo = ({ ping, setPing }) => {
             <div className="addvideocontainer">
               <div className="addVideo">
                 <div className="headeraddvideo">
-                  <h2>titleInput</h2>
+                  <h2>{title}</h2>
                   <Link to="/">
                     <h4
                       onClick={() => {

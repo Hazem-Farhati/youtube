@@ -15,7 +15,8 @@ const CardVideoProfile = ({ el }) => {
           <div className="title_p">
             <h3>{el?.title}</h3>
             <div className="chaineuser_p">
-            <p>channel</p>
+              <img src={el?.user_image}/>
+            <p>{el?.name} {el?.lastname}</p>
             </div>
           </div>
           <div className="viewdate_p">

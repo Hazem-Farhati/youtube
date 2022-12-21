@@ -7,8 +7,10 @@ const productSchema = new schema({
   desc: { type: String },
   video: String,
   date: Date,
- 
-  user_id: { type: String }
+  user_image: String,
+  name: String,
+  lastname: String,
+  user_id: { type: String },
 });
 
 const Product = mongoose.model("Product", productSchema);

@@ -6,18 +6,20 @@ const CardVideo = ({ setwidth1, el, width1, width, show, setShow }) => {
   const user = useSelector((state) => state.user?.user);
   return (
     <>
-    <Link to={`/view/${el?._id}`}>
+    <Link onClick={()=>setShow(false)} to={`/view/${el?._id}`}>
     <div>
         {!show ?setwidth1("350px") :setwidth1("290px")}
       <div className="containerCard" style={{width:width1}} >
         <div className="video">
-          <iframe src={el.video} controls="0" frameborder="0" scrolling="no" />
+          <video  src={el.video} frameborder="0" scrolling="no" poster="https://99designs-blog.imgix.net/blog/wp-content/uploads/2019/05/youtube-logo.png?auto=format&q=60&fit=max&w=930" />
         </div>
         <div className="donne">
           <div className="title">
+
             <h3>{el.title}</h3>
             <div className="chaineuser">
-              <p>channel </p>
+              <img src={el.user_image}/>
+              <p>{el?.name} {el?.lastname} </p>
             </div>
           </div>
           <div className="viewdate">

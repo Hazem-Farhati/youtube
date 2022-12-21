@@ -13,7 +13,7 @@ const Home = ({ setsearch, search,marginLeft,width ,width1,setwidth1,show, setSh
         ?.filter((el) => el.title?.toLowerCase().includes(search.toLowerCase()))
         .map((el) => (
           <>
-            <CardVideo setwidth1={setwidth1} el={el} width1={width1} width={width} show={show} setShow={setShow} />
+            <CardVideo  setwidth1={setwidth1} el={el} width1={width1} width={width} show={show} setShow={setShow} />
           </>
         ))
         .reverse()}

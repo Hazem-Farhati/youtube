@@ -1,6 +1,6 @@
 .sideBar {
-  /* background-color: yellow; */
-  width: 18%;
+  background-color: white;
+    width: 18%;
   height: 50rem;
   z-index: 99999;
   position: fixed;
