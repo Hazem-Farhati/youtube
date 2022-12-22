@@ -11,6 +11,7 @@ const productSchema = new schema({
   name: String,
   lastname: String,
   user_id: { type: String },
+  poster:String
 });
 
 const Product = mongoose.model("Product", productSchema);

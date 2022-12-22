@@ -17,7 +17,8 @@ const CardVideoView = ({ setwidth1, el, width1, width, show, setShow }) => {
           <div className="title_v">
             <h3>{el.title}</h3>
             <div className="chaineuser_v">
-              <p>channel </p>
+              <img src={el.user_image}/>
+              <p>{el?.name} {el?.lastname} </p>
             </div>
           </div>
           <div className="viewdate_v">

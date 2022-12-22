@@ -17,10 +17,19 @@ const View = ({
     const product = useSelector((state) => state.product?.product);
       const { id } = useParams();
  const [upId, setUpId] = useState(id)
- 
+ const user = useSelector((state) => state.user?.user);
+ useEffect(() => {
+  // window.document=setShow(false);
+  setShow(false)
+
+ },[window]);
+
+
   return (
+    
     <div className="all_view">
       {console.log(upId)}
+      
       <div className="view">
         {product
           ?.filter((el) => id == el._id)
@@ -31,10 +40,19 @@ const View = ({
               
 
             </div>
-            <h4 style={{ color: "red" }}>{el?.title}</h4>
+            <h4 style={{ color: "black" ,fontSize:"18px",fontWeight:"500" }}>{el?.title}</h4>
+            <div style={{width:"80%" ,height:"70px" ,display:"flex",justifyContent:"flex-start",alignItems:"center",gap:"10px"}}>
+            <img style={{marginLeft:"20px",width:"40px", height:"40px" , borderRadius:"50%"}}  src={el?.user_image}/>
+            <div>
+            <h5 style={{fontSize:"18px" ,fontWeight:"500"}}>{el?.name} {el?.lastname}</h5>
+            <p style={{fontSize:"13px", fontWeight:"400"}}>nbr d'abonner</p>
+            </div>
+            <button style={{backgroundColor:"black",width:"100px",height:"37px" ,color:"white" ,borderRadius:"20px", marginLeft:"20px"}}>s'abonner</button>
+            </div>
             </>
           ))
           .reverse()}
+
       </div>
       <div className="view_right_side">
         {product

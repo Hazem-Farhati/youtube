@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { createProduct } from "../redux/productSlice/productSlice";
 import "../styles/addvideo.css";
 import axios from "axios";
+import { border, height } from "@mui/system";
 // import "../styles/addvideo.css";
 
 const AddVideo = ({ ping, setPing }) => {
@@ -29,10 +30,14 @@ const AddVideo = ({ ping, setPing }) => {
   //     [e.target.name]: e.target.value,
   //   });
   // };
-
+ 
   const [file, setFile] = useState("");
+  const [filePoster, setFilePoster] = useState("");
+
   const [url, setUrl] = useState("");
   const [show, setShow] = useState(false);
+  const [poster, setPoster] = useState("");
+
   // dsrmckm1q
   // preset name : msa2hvog
   const uploadImage = async () => {
@@ -43,7 +48,22 @@ const AddVideo = ({ ping, setPing }) => {
       .post("https://api.cloudinary.com/v1_1/dsrmckm1q/upload", form)
       .then((result) => {
         setUrl(result.data.secure_url);
+
         console.log(url, "url");
+      })
+      .catch((err) => console.log(err));
+  };
+  
+  const uploadPoster = async () => {
+    const form = new FormData();
+    form.append("file", filePoster);
+    form.append("upload_preset", "msa2hvog");
+    await axios
+      .post("https://api.cloudinary.com/v1_1/dsrmckm1q/upload", form)
+      .then((result) => {
+        setPoster(result.data.secure_url);
+        
+        console.log(poster, "poster");
       })
       .catch((err) => console.log(err));
   };
@@ -58,6 +78,7 @@ const AddVideo = ({ ping, setPing }) => {
         lastname:user?.lastname,
         video: url,
         user_id: user?._id,
+        poster:poster,
         date:new Date()
       })
     );
@@ -98,6 +119,7 @@ const AddVideo = ({ ping, setPing }) => {
                         name="title"
                         onChange={(e) => setTitle(e.target.value)}
                       />
+
                     </div>
                     <div className="inputText">
                       <h3 style={{ paddingLeft: "20px" }}>description</h3>
@@ -120,6 +142,7 @@ const AddVideo = ({ ping, setPing }) => {
                     <div>
                       {!show ? (
                         <>
+                        <h5>video</h5>
                           <input
                             className="choose_file"
                             type="file"
@@ -131,15 +154,30 @@ const AddVideo = ({ ping, setPing }) => {
                       ) : null}
 
                       <br />
-                      <button
+                   
+                    </div>
+                    <h5>photo</h5>
+                      <div style={{width:"70%" ,height:"100px",display:"flex" ,alignItems:"center" }}>
+                    <input
+                            className="choose_file"
+                            type="file"
+                            // value={""}
+                            onChange={(e) => setFilePoster(e.target.files[0])}
+                          />
+                          <div style={{width:"170px", height:"80px", backgroundColor:"transparent", border:"0.5px solid black" }}>
+                            
+                          <img style={{width:"100%",height:"100%"}} alt="photo"  src={poster}/>
+                          </div>
+                          </div>
+                             <button
                         className="upload_button"
                         onClick={() => {
                           uploadImage();
+                          uploadPoster()
                         }}
                       >
                         Save
                       </button>
-                    </div>
                   </div>
                   <div className="videouploaded">
                     <iframe src={url} controls="0" frameborder="0" />

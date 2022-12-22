@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { logout } from "../redux/userSlice/userSlice";
 
-const ParametreGenerale = ({ setParameterShow, parameterShow }) => {
+const ParametreGenerale = ({ setParameterShow, parameterShow,setShow }) => {
     const navigate = useNavigate();
   const user = useSelector((state) => state.user?.user);
   const isAuth = localStorage.getItem("token");
@@ -18,7 +18,7 @@ const ParametreGenerale = ({ setParameterShow, parameterShow }) => {
           <div className="firstContent">
             <div className="avatar" onClick={() => navigate("/profil/profilaccueil")}>
            {isAuth? <img className="imgNavbar" onClick={() => {
-                setParameterShow(!parameterShow);}}   src={user?.image} alt='photo'/> : <i class="bx bx-user-circle"></i>}
+                setParameterShow(!parameterShow);setShow(true)}}   src={user?.image} alt='photo'/> : <i class="bx bx-user-circle"></i>}
             </div>
             <div className="pgdonne">
               <h4>{user?.name} {user?.lastname}</h4>

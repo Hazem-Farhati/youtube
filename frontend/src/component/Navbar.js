@@ -19,10 +19,11 @@ const Navbar = ({setwidth,setmarginLeft, search, setsearch,show, setShow }) => {
 
   return (
     <>
-      <Sidebar show={show} setShow={setShow} />
+      <Sidebar show={show} setShow={setShow}  />
       <ParametreGenerale
         parameterShow={parameterShow}
         setParameterShow={setParameterShow}
+        setShow={setShow}
       />
       
 
@@ -32,7 +33,7 @@ const Navbar = ({setwidth,setmarginLeft, search, setsearch,show, setShow }) => {
             <i class="bx bx-list-ul"></i>
           </div>
           <Link to="/">
-            <img src="/assets/youtubelogo.png" alt="logo" />
+            <img src="/assets/youtubelogo.png" alt="logo" onClick={()=>setShow(true)}/>
           </Link>
         </div>
 

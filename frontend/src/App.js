@@ -19,7 +19,7 @@ import View from "./pages/View";
 function App() {
   const [ping, setPing] = useState(false);
   const isAuth = localStorage.getItem("token");
-  const [width, setwidth] = useState({width:"80%",width1:"330px"});
+  const [width, setwidth] = useState({ width: "80%", width1: "330px" });
   const [width1, setwidth1] = useState("");
   // {console.log(width1)}
   const [show, setShow] = useState(true);
@@ -27,17 +27,17 @@ function App() {
   const [marginLeft, setmarginLeft] = useState("");
   const dispatch = useDispatch();
   useEffect(() => {
- if(isAuth){
-  dispatch(userCurrent());
- }
- dispatch(getProduct());
-
+    if (isAuth) {
+      dispatch(userCurrent());
+    }
+    dispatch(getProduct());
   }, [dispatch, ping]);
   const [search, setsearch] = useState("");
 
   return (
     <div className="App">
       <Navbar
+      
         setwidth={setwidth}
         setwidth1={setwidth1}
         setmarginLeft={setmarginLeft}
