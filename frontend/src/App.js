@@ -2,7 +2,7 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Navbar from "./component/Navbar";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getProduct } from "./redux/productSlice/productSlice";
 import { useEffect, useState } from "react";
 import AddVideo from "./pages/AddVideo";
@@ -11,12 +11,14 @@ import Login from "./component/Login";
 import Register from "./component/Register";
 import Profil from "./pages/Profil";
 import PrivateRoute from "./privateRoutes/PrivateRoutes";
-import { userCurrent } from "./redux/userSlice/userSlice";
+import { getusers, userCurrent } from "./redux/userSlice/userSlice";
 import ProfileAcceuil from "./component/ProfileAcceuil";
 import ProfileVideo from "./component/ProfileVideo";
 import View from "./pages/View";
 
 function App() {
+  const users = useSelector((state) => state.user?.users);
+  console.log(users,"hellooo")
   const [ping, setPing] = useState(false);
   const isAuth = localStorage.getItem("token");
   const [width, setwidth] = useState({ width: "80%", width1: "330px" });
@@ -31,8 +33,10 @@ function App() {
       dispatch(userCurrent());
     }
     dispatch(getProduct());
+    dispatch(getusers())
   }, [dispatch, ping]);
   const [search, setsearch] = useState("");
+
 
   return (
     <div className="App">

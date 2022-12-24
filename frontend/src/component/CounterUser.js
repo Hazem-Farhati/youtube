@@ -11,14 +11,14 @@ import {
   selectCount,
 } from "../redux/userSlice/counterSlice";
 
-const CounterUser = ({ping,setPing}) => {
+const CounterUser = ({ping,setPing,el}) => {
   const user = useSelector((state) => state.user?.user);
-
+  const users = useSelector((state) => state.user?.users);
   const isAuth=localStorage.getItem('token')
 const navigate=useNavigate()
   const count = useSelector(selectCount);
   const dispatch = useDispatch();
-  const [Count, setCount] = useState(0);
+  const [Count, setCount] = useState(user?.abonner.value);
   return (
     <div>
       <div>
@@ -29,9 +29,9 @@ const navigate=useNavigate()
               setTimeout(() => {
                 dispatch(updateUser(
                   {
-                    ...user,user:{abonner:count-1},
-                      id: user?._id,
-                     
+                    ...user,user:{abonner:{...user?.abonner,abonner:count-1}}
+                      // ...user,user:{abonner:[...user.abonner,count-1]},
+
                     }
                 ),
                 setPing(!ping)
@@ -42,24 +42,26 @@ const navigate=useNavigate()
             S'abonner
           </button>
         ) : (
+          
           <button style={{backgroundColor:"black",width:"100px",height:"37px" ,color:"white" ,border:"none",borderRadius:"20px", marginLeft:"20px"}}
             aria-label="Increment value"
             onClick={() =>{ dispatch(increment())
             setTimeout(() => {
               dispatch(
-                updateUser({
-                ...user,user:{abonner:count+1},
-                  id: user?._id,
-                }),
+                updateUser(
+                                // ...user,user:{abonner:[...user.abonner,count+1]},
+
+                ),
+                
               );
-            }, 1500);}}
+            }, 1500);console.log(el?.id,'idddddddd')}}
           >
             Abonner
           </button>
         )}
 
         <span>{count}</span>
-        <h5>{user?.abonner}</h5>
+        <h5>{users?.abonner}</h5>
         
       </div>
       <div></div>

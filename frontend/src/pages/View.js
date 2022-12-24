@@ -26,6 +26,7 @@ const View = ({
   setShow(false)
 
  },[window]);
+ const users = useSelector((state) => state.user?.users);
 
 
   return (

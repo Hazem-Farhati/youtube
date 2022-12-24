@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import "../styles/profil.css";
 import { updateUser } from "../redux/userSlice/userSlice";
 import axios from "axios";
+import CounterUser from "../component/CounterUser";
 const Profil = ({ping,setPing,setsearch}) => {
   const user = useSelector((state) => state.user?.user);
   const [show, setShow] = useState(false);
@@ -102,6 +103,7 @@ const [file, setFile] = useState("");
         <div className="options">
           <button>Update channel</button>
           <button>Video Management</button>
+
         </div>
       </div>
       {console.log(user)} <Outlet />
