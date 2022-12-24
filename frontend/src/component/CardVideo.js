@@ -23,7 +23,7 @@ const CardVideo = ({ setwidth1, el, width1, width, show, setShow }) => {
             </div>
           </div>
           <div className="viewdate">
-            <p>2 M vue</p>
+                <p>2 M vue {el?.abonner }</p>
             <h2>.</h2>
             <p>
               {el?.date

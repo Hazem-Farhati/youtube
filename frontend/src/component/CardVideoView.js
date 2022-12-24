@@ -31,7 +31,6 @@ const CardVideoView = ({ setwidth1, el, width1, width, show, setShow }) => {
                 .slice(0, 1)}{" "}
             </p>
           </div>
-
         </div>
 
       </div>

@@ -134,7 +134,7 @@ userRouter.delete("/delete/:id", async (req, res) => {
   }
 });
 //put
-userRouter.put("/update/:id", async (req, res) => {
+userRouter.put("/update/up/:id", async (req, res) => {
   try {
     const result = await User.findOneAndUpdate(
       { _id: req.params.id },

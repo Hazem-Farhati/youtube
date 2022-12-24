@@ -52,7 +52,7 @@ export const updateUser = createAsyncThunk(
   async ({ user, id }) => {
     try {
       let result = await axios.put(
-        `http://localhost:5000/user/update/${id}`,
+        `http://localhost:5000/user/update/up/${id}`,
         user
       );
       return result.data;
