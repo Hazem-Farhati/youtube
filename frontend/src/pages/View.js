@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router";
 import CardVideo from "../component/CardVideo";
 import CardVideoView from "../component/CardVideoView";
+import CounterUser from "../component/CounterUser";
 import "../styles/view.css"
 const View = ({
   setsearch,
@@ -13,6 +14,8 @@ const View = ({
   setwidth1,
   show,
   setShow,
+  ping,
+  setPing
 }) => {
     const product = useSelector((state) => state.product?.product);
       const { id } = useParams();
@@ -47,7 +50,7 @@ const View = ({
             <h5 style={{fontSize:"18px" ,fontWeight:"500"}}>{el?.name} {el?.lastname}</h5>
             <p style={{fontSize:"13px", fontWeight:"400"}}>nbr d'abonner</p>
             </div>
-            <button style={{backgroundColor:"black",width:"100px",height:"37px" ,color:"white" ,borderRadius:"20px", marginLeft:"20px"}}>s'abonner</button>
+           <CounterUser ping={ping} setPing={setPing}/>
             </div>
             </>
           ))

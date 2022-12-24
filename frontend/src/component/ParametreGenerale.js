@@ -23,7 +23,7 @@ const ParametreGenerale = ({ setParameterShow, parameterShow,setShow }) => {
             <div className="pgdonne">
               <h4>{user?.name} {user?.lastname}</h4>
               <h5>{user?.email}</h5>
-              <h5 style={{ color: "blue" }}>gerer votre conte google</h5>
+              <h5 style={{ color: "blue" }}>gerer votre compte google</h5>
             </div>
           </div>
           <hr style={{ width: "100%" }} />

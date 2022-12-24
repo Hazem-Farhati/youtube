@@ -98,6 +98,7 @@ function App() {
               setsearch={setsearch}
               show={show}
               setShow={setShow}
+              ping={ping} setPing={setPing}
             />
           }
         />{" "}
