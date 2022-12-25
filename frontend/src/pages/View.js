@@ -63,20 +63,20 @@ const View = ({
                   }}
                   src={el?.user_image}
                 />
+                
                 <div>
                   <h5 style={{ fontSize: "18px", fontWeight: "500" }}>
                     {el?.name} {el?.lastname}
                   </h5>
-                  <p style={{ fontSize: "13px", fontWeight: "400" }}>
-                    nbr d'abonnerr
-                    {el?.abonner}
-                  </p>
                 </div>
+                <br />
                 {users
                   ?.filter((elm) => elm?.name === el?.name)
                   .map((el) => (
                     <>
-                      <h5>{el?.abonner}</h5>
+                      <p style={{ fontSize: "13px", fontWeight: "700" }}>
+                        nbr d'abonnerr { " "} {el?.abonner}
+                      </p>
                       <CounterUser ping={ping} setPing={setPing} el={el} />
                     </>
                   ))}

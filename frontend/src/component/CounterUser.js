@@ -19,12 +19,12 @@ const CounterUser = ({ ping, setPing, el }) => {
   const count = useSelector(selectCount);
   const dispatch = useDispatch();
   const [Count, setCount] = useState(user?.abonner.value);
+  const [isSub, setIsSub] = useState(el?.isSubscribed)
+  console.log(isSub,"isssub")
   return (
     <div>
       <div>
-        
-        {count ?
-          (
+        {count == "0" && isSub == true && (
           <button
             style={{
               backgroundColor: "#f2f2f2",
@@ -46,7 +46,7 @@ const CounterUser = ({ ping, setPing, el }) => {
                       user: { abonner: el?.abonner - 1, isSubscribed: false },
                       id: el?._id,
                     },
-
+                    setIsSub(false),
                     setPing(!ping)
                   )
                   // ...user,user:{abonner:[...user.abonner,count+1]},
@@ -57,7 +57,8 @@ const CounterUser = ({ ping, setPing, el }) => {
           >
             S'abonner
           </button>
-        ) : (
+        )}
+        {count == "0" && isSub == false && (
           <button
             style={{
               backgroundColor: "black",
@@ -82,6 +83,7 @@ const CounterUser = ({ ping, setPing, el }) => {
                       },
                       id: el?._id,
                     },
+                    setIsSub(true),
                     setPing(!ping)
                   )
                   // ...user,user:{abonner:[...user.abonner,count+1]},
@@ -95,6 +97,79 @@ const CounterUser = ({ ping, setPing, el }) => {
           </button>
         )}
 
+        {count == "-1" && isSub == false && (
+          <button
+            style={{
+              backgroundColor: "black",
+              width: "100px",
+              height: "37px",
+              color: "white",
+              border: "none",
+              borderRadius: "20px",
+              marginLeft: "20px",
+            }}
+            aria-label="Increment value"
+            onClick={() => {
+              dispatch(increment());
+              setTimeout(() => {
+                dispatch(
+                  updateUser(
+                    {
+                      ...user,
+                      user: {
+                        abonner: el?.abonner + count + 2,
+                        isSubscribed: true,
+                      },
+                      id: el?._id,
+                    },
+                    setIsSub(true),
+                    setPing(!ping)
+                  )
+                  // ...user,user:{abonner:[...user.abonner,count+1]},
+                );
+              }, 1500);
+              console.log(el?.name, "idddddddd");
+              console.log(el?.abonner + count + 1, "elll");
+            }}
+          >
+            Abonner
+          </button>
+        )}
+
+        {count == "1" && isSub == true && (
+          <button
+            style={{
+              backgroundColor: "#f2f2f2",
+              width: "100px",
+              height: "37px",
+              color: "black",
+              border: "none",
+              borderRadius: "20px",
+              marginLeft: "20px",
+            }}
+            aria-label="Increment value"
+            onClick={() => {
+              dispatch(decrement());
+              setTimeout(() => {
+                dispatch(
+                  updateUser(
+                    {
+                      ...user,
+                      user: { abonner: el?.abonner - 1, isSubscribed: false },
+                      id: el?._id,
+                    },
+                    setIsSub(false),
+                    setPing(!ping)
+                  )
+                  // ...user,user:{abonner:[...user.abonner,count+1]},
+                );
+              }, 1500);
+              console.log(el?.id, "idddddddd");
+            }}
+          >
+            S'abonner
+          </button>
+        )}
         <span>{count}</span>
       </div>
       <div></div>

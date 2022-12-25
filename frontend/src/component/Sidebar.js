@@ -2,17 +2,23 @@ import React from "react";
 import "../styles/sidebar.css";
 import HomeIcon from "@mui/icons-material/Home";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 const Sidebar = ({ show, setShow }) => {
+  const users = useSelector((state) => state.user?.users);
+      const user = useSelector((state) => state.user?.user);
+const isAuth = localStorage.getItem("token")
+console.log(users,"userss");
   return (
     <>
       {show && (
         <div className="sideBar">
           <div className="firstSide">
-            <Link to="/"><div className="option">
+            <Link to="/">
+              <div className="option">
                 <i className="bx bx-home sideBarIcon"></i>
                 <h4>Accueil</h4>
-                
-            </div></Link>
+              </div>
+            </Link>
             <div className="option">
               <i class="bx bx-caret-right sideBarIcon"></i>
               <h4>Shorts</h4>
@@ -48,42 +54,23 @@ const Sidebar = ({ show, setShow }) => {
             <div className="option">
               <h4>Abonnements</h4>
             </div>
-            <div className="option">
-              <i className="bx bx-user-circle sideBarIcon"></i>
-              <h4>firas bs</h4>
-            </div>
-            <div className="option">
-              <i className="bx bx-user-circle sideBarIcon"></i>
-              <h4>firas bs</h4>
-            </div>
-            <div className="option">
-              <i className="bx bx-user-circle sideBarIcon"></i>
-              <h4>firas bs</h4>
-            </div>
-            <div className="option">
-              <i className="bx bx-user-circle sideBarIcon"></i>
-              <h4>firas bs</h4>
-            </div>
-            <div className="option">
-              <i className="bx bx-user-circle sideBarIcon"></i>
-              <h4>firas bs</h4>
-            </div>
-            <div className="option">
-              <i className="bx bx-user-circle sideBarIcon"></i>
-              <h4>firas bs</h4>
-            </div>
-            <div className="option">
-              <i className="bx bx-user-circle sideBarIcon"></i>
-              <h4>firas bs</h4>
-            </div>{" "}
-            <div className="option">
-              <i className="bx bx-user-circle sideBarIcon"></i>
-              <h4>firas bs</h4>
-            </div>{" "}
-            <div className="option">
-              <i className="bx bx-user-circle sideBarIcon"></i>
-              <h4>firas bs</h4>
-            </div>
+            {isAuth && (
+              <>
+                {users
+                  ?.filter((el) => el?.isSubscribed == true)
+                  .filter((el) => user?.name !== el?.name)
+                  .map((el) => (
+                    <div className="option">
+                      <img src={el?.image} alt="" />
+
+                      <h4>
+                        {el?.name} {el?.lastname}
+                      </h4>
+                      {console.log(el?.name, "nameee")}
+                    </div>
+                  ))}
+              </>
+            )}
           </div>
         </div>
       )}
