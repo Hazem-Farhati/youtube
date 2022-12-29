@@ -11,7 +11,9 @@ const productSchema = new schema({
   name: String,
   lastname: String,
   user_id: { type: String },
-  poster:String
+  poster: String,
+  like: { type: Number, default: 0 },
+  isLiked : { type :Boolean , default:false}
 });
 
 const Product = mongoose.model("Product", productSchema);

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import CardVideo from "../component/CardVideo";
 import CardVideoView from "../component/CardVideoView";
 import CounterUser from "../component/CounterUser";
+import LikeDislike from "../component/LikeDislike";
+import { updateProduct } from "../redux/productSlice/productSlice";
 import "../styles/view.css";
 const View = ({
   setsearch,
@@ -26,7 +28,6 @@ const View = ({
     setShow(false);
   }, [window]);
   const users = useSelector((state) => state.user?.users);
-
   return (
     <div className="all_view">
       {console.log(upId)}
@@ -40,7 +41,14 @@ const View = ({
                 <video src={el.video} controls></video>
               </div>
               <h4
-                style={{ color: "black", fontSize: "18px", fontWeight: "500" }}
+                style={{
+                  color: "black",
+                  fontSize: "18px",
+                  fontWeight: "500",
+                  marginLeft: "55px",
+                  marginTop: "0",
+                  marginBottom: "10px",
+                }}
               >
                 {el?.title}
               </h4>
@@ -50,36 +58,53 @@ const View = ({
                   height: "70px",
                   display: "flex",
                   justifyContent: "flex-start",
-                  alignItems: "center",
+                  alignItems: "flex-start",
                   gap: "10px",
+                  marginLeft: "28px",
                 }}
               >
                 <img
                   style={{
                     marginLeft: "20px",
-                    width: "40px",
-                    height: "40px",
+                    width: "50px",
+                    height: "50px",
                     borderRadius: "50%",
                   }}
                   src={el?.user_image}
                 />
-                
                 <div>
-                  <h5 style={{ fontSize: "18px", fontWeight: "500" }}>
-                    {el?.name} {el?.lastname}
-                  </h5>
+                  <div>
+                    <h5 style={{ fontSize: "20px", fontWeight: "500" }}>
+                      {el?.name} {el?.lastname}
+                    </h5>
+                  </div>
+
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "flex-start",
+                      alignItems: "flex-start",
+                    }}
+                  >
+                    {users
+                      ?.filter((elm) => elm?.name === el?.name)
+                      .map((el) => (
+                        <>
+                          <p
+                            style={{
+                              fontSize: "13px",
+                              fontWeight: "300",
+                              marginTop: "8px",
+                            }}
+                          >
+                            {el?.abonner} abonnés
+                          </p>
+                          <CounterUser ping={ping} setPing={setPing} el={el} />
+                        </>
+                      ))}
+                  </div>
                 </div>
-                <br />
-                {users
-                  ?.filter((elm) => elm?.name === el?.name)
-                  .map((el) => (
-                    <>
-                      <p style={{ fontSize: "13px", fontWeight: "700" }}>
-                        nbr d'abonnerr { " "} {el?.abonner}
-                      </p>
-                      <CounterUser ping={ping} setPing={setPing} el={el} />
-                    </>
-                  ))}
+                <LikeDislike el={el} ping={ping} setPing={setPing} />
               </div>
             </>
           ))

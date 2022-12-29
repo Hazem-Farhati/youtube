@@ -32,18 +32,21 @@ console.log(users,"userss");
 
           <div className="secondeSide">
             <div className="option">
-              <i className="bx bx-play-circle sideBarIcon"></i>
+              <i class="uil uil-presentation-play sideBarIcon"></i>
               <h4>Bibliothéque</h4>
             </div>
             <div className="option">
-              <i className="bx bx-play-circle sideBarIcon"></i>
+              <i className="uil uil-history sideBarIcon"></i>
               <h4>Historique</h4>
+            </div>{" "}
+            <div className="option">
+              <i className="uil uil-airplay sideBarIcon"></i>
+              <h4>Vos videos</h4>
             </div>
             <div className="option">
-              <i className="bx bx-play-circle sideBarIcon"></i>
+              <i className="uil uil-clock sideBarIcon"></i>
               <h4> A regarder plus tard</h4>
             </div>
-
             <div className="option">
               <i className="bx bx-play-circle sideBarIcon"></i>
               <h4>Videos "j'aime"</h4>

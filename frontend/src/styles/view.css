@@ -18,8 +18,10 @@ background-color: transparent;
     margin-left: 20px;
 }
 .view .mainVideo video{
-    width: 100%;
-    height: 100%;
+    width: 95%;
+    height: 91%;             
+         margin-bottom: "0px",
+
 }
 .view h4 {
    width: max-content;
@@ -35,4 +37,78 @@ margin-top: 20px;
 }
 .view_right_side .v_vid{
  
+}
+
+.video__likes_dis {
+    background-color: #f2f2f2;
+    width: 130px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 500px;
+    border-radius: 20px;
+}
+.video__likes_dis .like  {
+    background-color: transparent   ;
+    width: 130px;
+    height: 40px;
+    display: flex;
+      align-items: center;
+    justify-content: center;
+    border-top-left-radius:20px ;
+    border-bottom-left-radius: 20px;
+}
+.video__likes_dis .like i  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+      margin-top: 7px;
+      margin-right: 10px;
+    font-size: 22px;
+    font-weight: 400;
+}
+.video__likes_dis .like p {
+padding-right: 5px;}
+
+.video__likes_dis .like:hover  {
+      background-color: #dad6d6;
+    cursor: pointer;
+}
+.video__likes_dis .like .liked  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 7px;
+    margin-right: 10px;
+    font-size: 22px;
+    font-weight: 400;
+    color: red;
+}
+
+.video__likes_dis .dislike  {
+    background-color: transparent;
+    width: 90px;
+    height: 40px;
+    display: flex;
+      align-items: center;
+    justify-content: center;
+    border-top-right-radius:20px ;
+    border-bottom-right-radius: 20px;
+    border-left: 1px solid rgba(0, 0, 0, 0.281);
+}
+
+.video__likes_dis .dislike:hover {
+    background-color: #dad6d6;
+    cursor: pointer;
+}
+
+.video__likes_dis .dislike .uil-thumbs-down  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+      margin-top: 7px;
+      margin-right: 10px;
+    font-size: 22px;
+    font-weight: 400;
 }

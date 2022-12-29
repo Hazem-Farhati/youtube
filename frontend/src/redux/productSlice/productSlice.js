@@ -12,7 +12,21 @@ export const getProduct = createAsyncThunk("product/get", async () => {
   }
 });
 //add product
-
+//update product
+export const updateProduct = createAsyncThunk(
+  "poduct/update/",
+  async ({ product, id }) => {
+    try {
+      let result = await axios.put(
+        `http://localhost:5000/product/update/${id}`,
+        product
+      );
+      return result.data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
 export const createProduct=createAsyncThunk(
   "product/add",
   async(product)=>{
@@ -25,23 +39,6 @@ export const createProduct=createAsyncThunk(
   }
 
 )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -77,7 +74,19 @@ export const productSlice = createSlice({
     },
     [createProduct.rejected]: (state) => {
       state.status = "failed";
-    }
+    },
+
+      //update product
+    [updateProduct.pending]: (state) => {
+      state.status = "loading";
+    },
+    [updateProduct.fulfilled]: (state, action) => {
+      state.status = "fullfieled";
+  
+    },
+    [updateProduct.rejected]: (state) => {
+      state.status = "failed";
+    },
   },
 });
 

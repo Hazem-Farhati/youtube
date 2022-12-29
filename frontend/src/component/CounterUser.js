@@ -17,6 +17,7 @@ const CounterUser = ({ ping, setPing, el }) => {
   const isAuth = localStorage.getItem("token");
   const navigate = useNavigate();
   const count = useSelector(selectCount);
+  console.log(count,"count")
   const dispatch = useDispatch();
   const [Count, setCount] = useState(user?.abonner.value);
   const [isSub, setIsSub] = useState(el?.isSubscribed)
@@ -33,7 +34,10 @@ const CounterUser = ({ ping, setPing, el }) => {
               color: "black",
               border: "none",
               borderRadius: "20px",
-              marginLeft: "20px",
+              marginLeft: "40px",
+              position: "absolute",
+              left: "250px",
+              top: "680px",
             }}
             aria-label="Increment value"
             onClick={() => {
@@ -67,7 +71,10 @@ const CounterUser = ({ ping, setPing, el }) => {
               color: "white",
               border: "none",
               borderRadius: "20px",
-              marginLeft: "20px",
+              marginLeft: "40px",
+              position: "absolute",
+              left: "250px",
+              top: "680px",
             }}
             aria-label="Increment value"
             onClick={() => {
@@ -106,7 +113,10 @@ const CounterUser = ({ ping, setPing, el }) => {
               color: "white",
               border: "none",
               borderRadius: "20px",
-              marginLeft: "20px",
+              marginLeft: "40px",
+              position: "absolute",
+              left: "250px",
+              top: "680px",
             }}
             aria-label="Increment value"
             onClick={() => {
@@ -145,7 +155,10 @@ const CounterUser = ({ ping, setPing, el }) => {
               color: "black",
               border: "none",
               borderRadius: "20px",
-              marginLeft: "20px",
+              marginLeft: "40px",
+              position: "absolute",
+              left: "250px",
+              top: "680px",
             }}
             aria-label="Increment value"
             onClick={() => {
@@ -170,7 +183,7 @@ const CounterUser = ({ ping, setPing, el }) => {
             S'abonner
           </button>
         )}
-        <span>{count}</span>
+        {/* <span>{count}</span> */}
       </div>
       <div></div>
     </div>
