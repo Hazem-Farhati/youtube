@@ -21,9 +21,9 @@ const AddVideo = ({ ping, setPing }) => {
   const [showAdd, setShowAdd] = useState(true);
   const navigate = useNavigate();
   const user = useSelector((state) => state.user?.user);
-
   const product = useSelector((state) => state.product?.product);
-
+  const [titledetails, setTitledetails] = useState(false)
+  const [descdetails, setDescdetails] = useState(false)
   // const handleUpdate = (e) => {
   //   setNewProduct({
   //     ...newProduct,
@@ -109,6 +109,18 @@ const AddVideo = ({ ping, setPing }) => {
               <div className="detailsaddvideo">
                 <div className="addInput">
                   <h2 style={{ marginBottom: "20px" }}>Détails</h2>
+                  {titledetails && (
+                    <div className="title__details">
+                      <p>
+                        {" "}
+                        Un titre accrocheur peut vous permettre de capter
+                        l'attention des internautes. Lorsque vous créez un titre
+                        de vidéo, nous vous conseillons d'inclure des mots clés
+                        que les spectateurs sont susceptibles d'utiliser pour
+                        rechercher des contenus comme les vôtres.
+                      </p>
+                    </div>
+                  )}
 
                   <div
                     className="inputTitle"
@@ -127,7 +139,11 @@ const AddVideo = ({ ping, setPing }) => {
                     >
                       Titre (obligatoir){" "}
                       <span>
-                        <i class="uil uil-question-circle"></i>
+                        <i
+                          class="uil uil-question-circle"
+                          onMouseEnter={() => setTitledetails(true)}
+                          onMouseLeave={() => setTitledetails(false)}
+                        ></i>
                       </span>
                     </h3>
                     <textarea
@@ -138,13 +154,32 @@ const AddVideo = ({ ping, setPing }) => {
                       onChange={(e) => setTitle(e.target.value)}
                     />
                   </div>
+                  {descdetails && (
+                    <div className="desc__details">
+                      <p>
+                        Pour aider les spectateurs à trouver plus facilement vos
+                        vidéos, rédigez des descriptions contenant des mots
+                        clés. Vous pouvez présenter votre vidéo et placer les
+                        mots clés au début de la description.
+                      </p>
+                    </div>
+                  )}
 
                   <div className="inputText">
-                    <h3 style={{ paddingLeft: "20px" }}>description</h3>
+                    <h3 style={{ paddingLeft: "20px" }}>
+                      description{" "}
+                      <span>
+                        <i
+                          class="uil uil-question-circle"
+                          onMouseEnter={() => setDescdetails(true)}
+                          onMouseLeave={() => setDescdetails(false)}
+                        ></i>
+                      </span>
+                    </h3>
 
                     <textarea
                       type="text"
-                      placeholder="desc"
+                      placeholder="Présentez votre video a vos spectateurs"
                       name="desc"
                       onChange={(e) => setDesc(e.target.value)}
                     />
