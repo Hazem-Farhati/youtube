@@ -54,7 +54,7 @@ const View = ({
               </h4>
               <div
                 style={{
-                  width: "80%",
+                  width: "1000%",
                   height: "70px",
                   display: "flex",
                   justifyContent: "flex-start",
