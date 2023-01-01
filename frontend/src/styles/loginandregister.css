@@ -1,14 +1,20 @@
+.login__container{
+    /* background-color: red; */
+    width: 100%;
+    height: 45.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .container{
     width: 30%;
-    height: auto;
+    height: 80%;
 border: 1px gray solid;    
-   margin:0 auto;
+border-radius: 5px;
+   margin:auto auto;
 }
 .container .header{
-display: flex;
-justify-content: center;
-align-items: center;
-height: 100px;
+text-align: center;
 }
 .container .input{
     height: 350px;
@@ -17,9 +23,46 @@ height: 100px;
    flex-wrap:wrap;
    margin-top: 35px;
 }
-.container .input input{
-    width: 90%;
-    height: 35px;
+.container .input .email__input{
+    width: 80%;
+    height: 85px;
+    /* background-color: red;  */
+     display: flex;
+  align-items: flex-end;
+  position: relative;
+  flex-wrap: wrap;
+    
+}
+.container .input .email__input h4{
+background-color: #fff;
+font-weight: normal;
+left: 20px;
+bottom: 75px;
+    position: absolute;
+    width: 50px;
+    text-align: center;
+}
+.container .input .email__input input{
+    width: 100%;
+    height: 70%;
+    /* background-color: red; */
+    border-radius: 5px;
+}
+.container .input .email__input h5{
+color: #0760d4;
+font-weight: 500;
+font-size: 14px;
+margin-top: 5px;
+cursor: pointer;
+/* background-color: red; */
+}
+.container .input .email__input p{
+/* color: #0760d4; */
+font-weight: 400;
+font-size: 14px;
+margin-top: 55px;
+cursor: pointer;
+/* background-color: red; */
 }
 .container .footer{
     display: flex;
@@ -39,4 +82,71 @@ border-radius: 10px;
 }
 .container .input input::placeholder{
     padding-left: 10px;
+    font-size: 20px;
+}
+.login__container .container .header .sign_in_logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    margin-top: 20px;
+}
+.login__container .container .header img{
+    width: 120px;
+    height: 100px;
+    margin-top: 20px;
+}
+.login__container .container .header h1{
+font-weight: 500;
+margin-top: 0;
+font-size: 25px;
+}
+.login__container .container .header p{
+font-weight: 500;
+
+}
+
+.getemail__next {
+    /* background-color: #0760d4; */
+    width: 85%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;    
+}
+
+.getemail__next a button {
+       width: 150px;
+    height: 35px;
+    background-color: transparent;
+    color:  #0760d4;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 10px;
+    border: none;
+}
+.getemail__next a button:hover {
+        background-color: #136ce11b;
+
+}
+
+.getemail__next  button {
+       width: 85px;
+    height: 38px;
+    background-color: #0760d4;
+    color:  white;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 5px;
+    border: none;
+}
+.getemail__next  button:hover {
+  
+    background-color: #0855b9;
+   
+}
+
+.next_btn_true{
+    position: absolute;
+   left: 866.8px;
 }

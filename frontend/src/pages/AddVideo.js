@@ -12,31 +12,28 @@ import { border, height } from "@mui/system";
 
 const AddVideo = ({ ping, setPing }) => {
   const dispatch = useDispatch();
-  // const [newProduct, setNewProduct] = useState({});
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
-
-  // const [link, setLink] = useState("")
-
   const [showAdd, setShowAdd] = useState(true);
   const navigate = useNavigate();
   const user = useSelector((state) => state.user?.user);
   const product = useSelector((state) => state.product?.product);
-  const [titledetails, setTitledetails] = useState(false)
-  const [descdetails, setDescdetails] = useState(false)
-  // const handleUpdate = (e) => {
-  //   setNewProduct({
-  //     ...newProduct,
-  //     [e.target.name]: e.target.value,
-  //   });
-  // };
-
+  const [titledetails, setTitledetails] = useState(false);
+  const [descdetails, setDescdetails] = useState(false);
+  const [misenligne, setMisenligne] = useState(false);
+  const [traitemetvideo, setTraitemetvideo] = useState(false);
+  const [verification, setVerification] = useState(false);
+  const [visibilité, setVisibilité] = useState(false);
   const [file, setFile] = useState("");
   const [filePoster, setFilePoster] = useState("");
-
   const [url, setUrl] = useState("");
   const [show, setShow] = useState(false);
   const [poster, setPoster] = useState("");
+
+  //copy link
+  const [copySuccess, setCopySuccess] = useState("");
+  //calcule nombre de mots
+  const [calctitle, setCalctitle] = useState(0);
 
   // dsrmckm1q
   // preset name : msa2hvog
@@ -84,6 +81,15 @@ const AddVideo = ({ ping, setPing }) => {
     );
     setPing(!ping);
   };
+  // function to coppy link
+  const copyToClipBoard = async (copyMe) => {
+    try {
+      await navigator.clipboard.writeText(copyMe);
+      setCopySuccess("done!");
+    } catch (err) {
+      setCopySuccess("Failed to copy!");
+    }
+  };
 
   return (
     <>
@@ -92,7 +98,12 @@ const AddVideo = ({ ping, setPing }) => {
           <div className="addvideocontainer">
             <div className="addVideo">
               <div className="headeraddvideo">
-                <h2>{title}</h2>
+                {title.length > 50 ? (
+                  <h2>{title.slice(0, 51) + "..."}</h2>
+                ) : (
+                  <h2>{title}</h2>
+                )}
+
                 <Link to="/">
                   <h4
                     onClick={() => {
@@ -103,7 +114,73 @@ const AddVideo = ({ ping, setPing }) => {
                   </h4>
                 </Link>
               </div>
+
               <div className="etpadeaddvideo">
+                {title == "" ? (
+                  <>
+                    <div className="first__details">
+                      <h4>Details</h4>
+                      <i class="uil uil-exclamation-circle notdone"></i>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="first__details">
+                      <h4>Details</h4>
+                      <i class="uil uil-circle done"></i>
+                    </div>
+                  </>
+                )}
+                {url == "" ? (
+                  <>
+                    {" "}
+                    <div className="element__video">
+                      <h4>Elements video</h4>
+                      <i class="uil uil-exclamation-circle notdone"></i>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="element__video">
+                      <h4>Elements video</h4>
+                      <i class="uil uil-circle done"></i>
+                    </div>
+                  </>
+                )}
+
+                {url == "" || title == "" ? (
+                  <>
+                    {" "}
+                    <div className="verif">
+                      <h4>Verification</h4>
+                      <i class="uil uil-exclamation-circle notdone"></i>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="verif">
+                      <h4>Verification </h4>
+                      <i class="uil uil-check-circle done"></i>
+                    </div>
+                  </>
+                )}
+
+                {!visibilité ? (
+                  <>
+                    {" "}
+                    <div className="visivilté">
+                      <h4>Visiviltéé</h4>
+                      <i class="uil uil-circle notdone"></i>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="visivilté">
+                      <h4>Visivilté </h4>
+                      <i class="uil uil-check-circle done"></i>
+                    </div>
+                  </>
+                )}
                 <hr />
               </div>
               <div className="detailsaddvideo">
@@ -126,8 +203,8 @@ const AddVideo = ({ ping, setPing }) => {
                     className="inputTitle"
                     style={
                       title == ""
-                        ? { border: "1px solid red" }
-                        : { border: "1px solid black" }
+                        ? { border: "1px solid red", position: "relative" }
+                        : { border: "1px solid black", position: "relative" }
                     }
                   >
                     <h3
@@ -152,7 +229,21 @@ const AddVideo = ({ ping, setPing }) => {
                       name="title"
                       maxLength={100}
                       onChange={(e) => setTitle(e.target.value)}
+                      // onKeyDown={whenKeyPressed}
                     />
+
+                    {console.log(title?.length, "calcull")}
+                    <h4
+                      style={{
+                        width: "60px",
+                        position: "absolute",
+                        left: "435px",
+                        top: "70px",
+                        fontWeight: "400",
+                      }}
+                    >
+                      {title?.length}/100{" "}
+                    </h4>
                   </div>
                   {descdetails && (
                     <div className="desc__details">
@@ -167,7 +258,7 @@ const AddVideo = ({ ping, setPing }) => {
 
                   <div className="inputText">
                     <h3 style={{ paddingLeft: "20px" }}>
-                      description{" "}
+                      Description{" "}
                       <span>
                         <i
                           class="uil uil-question-circle"
@@ -192,50 +283,69 @@ const AddVideo = ({ ping, setPing }) => {
                     /> */}
                   {/* // widget /// */}
 
-                  <div>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "flex-start",
+                      gap: "20px",
+                    }}
+                  >
                     {!show ? (
                       <>
-                        <h5>video</h5>
-                        <input
-                          className="choose_file"
-                          type="file"
-                          accept="file_extension|audio/*|video/*|image/*|media_type"
-                          // value={""}
-                          onChange={(e) => setFile(e.target.files[0])}
-                        />
+                        <h4>Ajouter votre video</h4>
+                        <div style={{ width: "50%" }}>
+                          <input
+                            className="choose_file"
+                            type="file"
+                            accept="file_extension|audio/*|video/*|image/*|media_type"
+                            // value={""}
+                            onChange={(e) => setFile(e.target.files[0])}
+                          />
+                          {console.log(file.name)}
+                        </div>
                       </>
                     ) : null}
 
                     <br />
                   </div>
-                  <h5>photo</h5>
                   <div
                     style={{
-                      width: "70%",
-                      height: "100px",
                       display: "flex",
                       alignItems: "center",
+                      justifyContent: "flex-start",
+                      gap: "65px",
                     }}
                   >
-                    <input
-                      className="choose_file"
-                      type="file"
-                      // value={""}
-                      onChange={(e) => setFilePoster(e.target.files[0])}
-                    />
+                    <h4>Ajouter votre poster</h4>
                     <div
                       style={{
-                        width: "170px",
-                        height: "80px",
-                        backgroundColor: "transparent",
-                        border: "0.5px solid black",
+                        width: "70%",
+                        height: "100px",
+                        display: "flex",
+                        alignItems: "center",
                       }}
                     >
-                      <img
-                        style={{ width: "100%", height: "100%" }}
-                        alt="photo"
-                        src={poster}
+                      <input
+                        className="choose_file"
+                        type="file"
+                        // value={""}
+                        onChange={(e) => setFilePoster(e.target.files[0])}
                       />
+                      <div
+                        style={{
+                          width: "170px",
+                          height: "80px",
+                          backgroundColor: "transparent",
+                          border: "0.5px solid black",
+                        }}
+                      >
+                        <img
+                          style={{ width: "100%", height: "100%" }}
+                          alt="photo"
+                          src={poster}
+                        />
+                      </div>
                     </div>
                   </div>
                   <button
@@ -250,10 +360,94 @@ const AddVideo = ({ ping, setPing }) => {
                 </div>
                 <div className="videouploaded">
                   <iframe src={url} controls="0" frameborder="0" />
+                  <div style={{ overflow: "hidden", width: "95%" }}>
+                    {" "}
+                    <div className="vd_up_details">
+                      {" "}
+                      <h5>Lien vidéo</h5>
+                      {url !== "" && (
+                        <div
+                          style={{
+                            color: "#0760d4",
+                            cursor: "pointer",
+                          }}
+                        >
+                          <div>{url}</div>
+                          <div
+                            style={{
+                              display: "flex",
+                              position: "absolute",
+                              left: "280px",
+                              top: "20px",
+                            }}
+                          >
+                            <i
+                              class="uil uil-copy"
+                              onClick={() => copyToClipBoard(url)}
+                            ></i>
+                            <div
+                              style={{
+                                position: "absolute",
+                                left: "10px",
+                                top: "40px",
+                                color: "green",
+                              }}
+                            >
+                              {" "}
+                              {copySuccess}
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                      <div style={{ paddingTop: "5px" }}>
+                        <h5>Nom du fichier</h5>
+
+                        {file.name}
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div className="confirmaddvideo">
-                <div className="telechergement"></div>
+                <div className="telechergement">
+                  {misenligne && (
+                    <div className="mis__enligne">
+                      <p>Mise en ligne de la vidéo terminée</p>
+                    </div>
+                  )}
+
+                  <i
+                    class="uil uil-arrow-up"
+                    onMouseEnter={() => setMisenligne(true)}
+                    onMouseLeave={() => setMisenligne(false)}
+                  ></i>
+                  {traitemetvideo && (
+                    <div className="traitement__video">
+                      <p>
+                        Traitement de la vidéo <br /> Traitement terminé
+                      </p>
+                    </div>
+                  )}
+
+                  <i
+                    class="uil uil-usd-square"
+                    onMouseEnter={() => setTraitemetvideo(true)}
+                    onMouseLeave={() => setTraitemetvideo(false)}
+                  ></i>
+                  {verification && (
+                    <div className="verification">
+                      <h4> Vérification des droits d'auteur terminée</h4>
+                      <p>Aucun problème détecté</p>
+                    </div>
+                  )}
+
+                  <i
+                    class="uil uil-comment-verify"
+                    onMouseEnter={() => setVerification(true)}
+                    onMouseLeave={() => setVerification(false)}
+                  ></i>
+                  <h4>Vérifications terminées. Aucun problème détecté.</h4>
+                </div>
                 {url === "" || !title ? (
                   <div>
                     {" "}
@@ -273,6 +467,7 @@ const AddVideo = ({ ping, setPing }) => {
                   <>
                     <button
                       onClick={() => {
+                        setVisibilité(true);
                         handleSave();
                         setTimeout(() => {
                           navigate("/");

@@ -1,5 +1,5 @@
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import Navbar from "./component/Navbar";
 import { useDispatch, useSelector } from "react-redux";
@@ -36,20 +36,25 @@ function App() {
     dispatch(getusers())
   }, [dispatch, ping]);
   const [search, setsearch] = useState("");
+//use location 
+    const location = useLocation();
 
 
   return (
     <div className="App">
-      <Navbar
-      
-        setwidth={setwidth}
-        setwidth1={setwidth1}
-        setmarginLeft={setmarginLeft}
-        search={search}
-        setsearch={setsearch}
-        show={show}
-        setShow={setShow}
-      />
+      {location.pathname.includes("/login") ||
+      location.pathname.includes("/register") ? null : (
+        <Navbar
+          setwidth={setwidth}
+          setwidth1={setwidth1}
+          setmarginLeft={setmarginLeft}
+          search={search}
+          setsearch={setsearch}
+          show={show}
+          setShow={setShow}
+        />
+      )}
+
       <Routes>
         <Route
           path="/addVideo"
@@ -102,7 +107,8 @@ function App() {
               setsearch={setsearch}
               show={show}
               setShow={setShow}
-              ping={ping} setPing={setPing}
+              ping={ping}
+              setPing={setPing}
             />
           }
         />{" "}
