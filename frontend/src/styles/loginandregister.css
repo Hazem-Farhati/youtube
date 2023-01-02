@@ -1,152 +1,345 @@
-.login__container{
-    /* background-color: red; */
-    width: 100%;
-    height: 45.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.login__container {
+  /* background-color: red; */
+  width: 100%;
+  height: 45.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.container{
-    width: 30%;
-    height: 80%;
-border: 1px gray solid;    
-border-radius: 5px;
-   margin:auto auto;
+.container {
+  width: 30%;
+  height: 80%;
+  border: 1px gray solid;
+  border-radius: 5px;
+  margin: auto auto;
 }
-.container .header{
-text-align: center;
+.container .header {
+  text-align: center;
 }
-.container .input{
-    height: 350px;
-    display: flex;
-    justify-content: center;
-   flex-wrap:wrap;
-   margin-top: 35px;
+.container .input {
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 35px;
 }
-.container .input .email__input{
-    width: 80%;
-    height: 85px;
-    /* background-color: red;  */
-     display: flex;
+.container .input .email__input {
+  width: 80%;
+  height: 85px;
+  /* background-color: red;  */
+  display: flex;
   align-items: flex-end;
   position: relative;
   flex-wrap: wrap;
-    
 }
-.container .input .email__input h4{
-background-color: #fff;
-font-weight: normal;
-left: 20px;
-bottom: 75px;
-    position: absolute;
-    width: 50px;
-    text-align: center;
+.container .input .email__input h4 {
+  background-color: #fff;
+  font-weight: normal;
+  left: 20px;
+  bottom: 75px;
+  position: absolute;
+  width: 50px;
+  text-align: center;
 }
-.container .input .email__input input{
-    width: 100%;
-    height: 70%;
-    /* background-color: red; */
-    border-radius: 5px;
+.container .input .email__input input {
+  width: 100%;
+  height: 70%;
+  /* background-color: red; */
+  border-radius: 5px;
+  padding-left: 7px;
 }
-.container .input .email__input h5{
-color: #0760d4;
-font-weight: 500;
-font-size: 14px;
-margin-top: 5px;
-cursor: pointer;
-/* background-color: red; */
+.container .input .email__input h5 {
+  color: #0760d4;
+  font-weight: 500;
+  font-size: 14px;
+  margin-top: 5px;
+  cursor: pointer;
+  /* background-color: red; */
 }
-.container .input .email__input p{
-/* color: #0760d4; */
-font-weight: 400;
-font-size: 14px;
-margin-top: 55px;
-cursor: pointer;
-/* background-color: red; */
+.container .input .email__input p {
+  /* color: #0760d4; */
+  font-weight: 400;
+  font-size: 14px;
+  margin-top: 55px;
+  cursor: pointer;
+  /* background-color: red; */
 }
-.container .footer{
-    display: flex;
-justify-content: flex-end;
-padding: 20px;
-align-items: center;
-border-radius: 10px;
+.container .footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px;
+  align-items: center;
+  border-radius: 10px;
 }
-.container .footer button{
-    width: 100px;
-    height: 35px;
-    background-color: rgb(7,96,212);
-    color: white;
-    font-size: 18px;
-    font-weight: 300;
-    border-radius: 10px;
+.container .footer button {
+  width: 100px;
+  height: 35px;
+  background-color: rgb(7, 96, 212);
+  color: white;
+  font-size: 18px;
+  font-weight: 300;
+  border-radius: 10px;
 }
-.container .input input::placeholder{
-    padding-left: 10px;
-    font-size: 20px;
+.container .input input::placeholder {
+  padding-left: 10px;
+  font-size: 20px;
 }
-.login__container .container .header .sign_in_logo{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 80px;
-    margin-top: 20px;
+.login__container .container .header .sign_in_logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  margin-top: 20px;
 }
-.login__container .container .header img{
-    width: 120px;
-    height: 100px;
-    margin-top: 20px;
+.login__container .container .header .sign_in_logo img {
+  width: 120px;
+  height: 100px;
+  margin-top: 20px;
 }
-.login__container .container .header h1{
-font-weight: 500;
-margin-top: 0;
-font-size: 25px;
+.login__container .container .header h1 {
+  font-weight: 500;
+  margin-top: 0;
+  font-size: 25px;
 }
-.login__container .container .header p{
-font-weight: 500;
-
+.login__container .container .header p {
+  font-weight: 500;
 }
 
 .getemail__next {
-    /* background-color: #0760d4; */
-    width: 85%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;    
+  /* background-color: #0760d4; */
+  width: 85%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .getemail__next a button {
-       width: 150px;
-    height: 35px;
-    background-color: transparent;
-    color:  #0760d4;
-    font-size: 15px;
-    font-weight: 700;
-    border-radius: 10px;
-    border: none;
+  width: 150px;
+  height: 35px;
+  background-color: transparent;
+  color: #0760d4;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 10px;
+  border: none;
 }
 .getemail__next a button:hover {
-        background-color: #136ce11b;
+  background-color: #136ce11b;
+}
+
+.getemail__next button {
+  width: 85px;
+  height: 38px;
+  background-color: #0760d4;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 5px;
+  border: none;
+}
+.getemail__next button:hover {
+  background-color: #0855b9;
+}
+
+.next_btn_true {
+  position: absolute;
+  left: 866.8px;
+}
+.login_email_image {
+  background-color: rgba(243, 240, 240, 0.781);
+  height: 15px;
+  width: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 30px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.login_email_image:hover {
+  background-color: rgb(218, 218, 218);
+}
+.login_email_image .image__log {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: blue;
+  margin-top: 0;
+}
+
+.password__input__login {
+  /* background-color: red; */
+  height: 400px;
+}
+.password__input__login .password__input {
+  /* background-color: blue; */
+  height: 32%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+}
+
+.password__input__login .password__input input {
+  width: 80%;
+  height: 55px;
+  background-color: #fff;
+  padding-left: 7px;
+}
+
+.password__input__login .password__input h4 {
+  font-size: 12px;
+  font-weight: normal;
+  position: absolute;
+  top: 55px;
+  left: 60px;
+  background-color: #fff;
+  padding: 7px;
+}
+.afficher__mdp {
+  /* width: 100%; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: red; */
+  height: 40px;
+
+}
+.afficher__mdp .afficher__mdp__content {
+  /* background-color: blue; */
+  width: 82%;
+   display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+}
+.afficher__mdp .afficher__mdp__content h5{
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.afficher__mdp .afficher__mdp__content .mdp_checked{
+   height: 20px;
+   width: 30px;
+   /* background-color: green; */
+   border: solid 2px black;
+}
+
+/* --------- mot de passe oplibet and login button --------------- */
+.mdp__ob__login {
+  /* background-color: #0760d4; */
+  width: 85%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 35px;
+  margin-top: 70px;
+}
+
+.mdp__ob__login a button {
+  width: 156px;
+  height: 35px;
+  background-color: transparent;
+  color: #0760d4;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+}
+.mdp__ob__login a button:hover {
+  background-color: #136ce11b;
+}
+
+.mdp__ob__login button {
+  width: 85px;
+  height: 38px;
+  background-color: #0760d4;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 5px;
+  border: none;
+}
+.mdp__ob__login button:hover {
+  background-color: #0855b9;
+}
+
+/* ----------------------------- Register ---------------------------------- */
+.register__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.register__content .register__inpt{
+  width: 80%;
+  /* background-color: red; */
+   display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.register__content .register__inpt input{
+  width: 90%;
+  height: 50px;
+  margin-top: 25px;
+ border-radius: 5px;
+ border: 2px solid black;
+ padding-left: 7px;
+}
+.register__content .register__inpt input::placeholder{
+padding-left: 7px;
+}
+.register__content .register__inpt h5{
+position: absolute;
+left: 35px;
+top: 12px;
+background-color: #fff;
+padding: 5px;
+}
+
+/* -------------- already have account btn ------------------ */
+.rg_log {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+.register__footer {
+  /* background-color: red; */
+  width: 75%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
 }
 
-.getemail__next  button {
-       width: 85px;
-    height: 38px;
-    background-color: #0760d4;
-    color:  white;
-    font-size: 15px;
-    font-weight: 700;
-    border-radius: 5px;
-    border: none;
+
+.register__footer a button {
+  width: 150px;
+  height: 35px;
+  background-color: transparent;
+  color: #0760d4;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 10px;
+  border: none;
 }
-.getemail__next  button:hover {
-  
-    background-color: #0855b9;
-   
+.register__footer a button:hover {
+  background-color: #136ce11b;
 }
 
-.next_btn_true{
-    position: absolute;
-   left: 866.8px;
+.register__footer  button {
+  width: 100px;
+  height: 35px;
+  background-color: rgb(7, 96, 212);
+  color: white;
+  font-size: 15px;
+  font-weight: 400;
+  border-radius: 10px;
+  border: none;
 }

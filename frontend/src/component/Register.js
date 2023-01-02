@@ -11,54 +11,99 @@ const Register = () => {
     password: "",
     email: "",
   });
-  const navigate=useNavigate()
-  return (
-    <div className="container" onSubmit={(e) => e.preventDefault()}>
-      <div className="header">
-        <h1>Register</h1>
-      </div>
-      <div className="input">
-        <input
-          type="text"
-          placeholder="name"
-          onChange={(e) => setregister({ ...register, name: e.target.value })}
-        />
-        <input
-          type="text"
-          placeholder="lastname"
-          onChange={(e) =>
-            setregister({ ...register, lastname: e.target.value })
-          }
-        />
-        <input
-          type="text"
-          placeholder="email"
-          onChange={(e) => setregister({ ...register, email: e.target.value })}
-        />
-        <input
-          type="password"
-          placeholder="password"
-          onChange={(e) =>
-            setregister({ ...register, password: e.target.value })
-          }
-        />
-        <Link to="/login">
-          <button>you already have an account</button>
-        </Link>
-      </div>
-      <div className="footer">
-        <button
-          onClick={() => {
-            dispatch(userRegister(register))
-            setTimeout(() => {
-              navigate('/profil')
-            }, 1500);
 
-            
-          }}
-        >
-          Register
-        </button>
+  // selected inputs
+  const [nameselected, setNameselected] = useState(false);
+  const [lastnameselected, setLastnameselected] = useState(false)
+  const [emailselected, setEmailselected] = useState(false);
+  const [passwordselected, setPasswordselected] = useState(false);
+
+  const navigate = useNavigate();
+  return (
+    <div className="login__container">
+      <div className="container" onSubmit={(e) => e.preventDefault()}>
+        <div className="header">
+          <div className="sign_in_logo">
+            <img
+              src="https://www.freepnglogos.com/uploads/youtube-logo-hd-8.png"
+              alt="yt"
+            />
+          </div>
+          <h1>Créer un compte</h1>
+        </div>
+        <div className="register__content">
+          <div className="register__inpt">
+            {nameselected && <h5>Nom</h5>}
+            <input
+              type="text"
+              onFocus={(e) => (e.target.placeholder = "")}
+              onBlur={(e) => (e.target.placeholder = "Nom")}
+              placeholder="Nom"
+              onChange={(e) =>
+                setregister({ ...register, name: e.target.value })
+              }
+              onClick={() => setNameselected(true)}
+            />
+          </div>
+
+          <div className="register__inpt">
+            {lastnameselected && <h5>Prenom</h5>}
+            <input
+              type="text"
+              placeholder="Prenom"
+              onFocus={(e) => (e.target.placeholder = "")}
+              onBlur={(e) => (e.target.placeholder = "Prenom")}
+              onChange={(e) =>
+                setregister({ ...register, lastname: e.target.value })
+              }
+              onClick={() => setLastnameselected(true)}
+            />
+          </div>
+          <div className="register__inpt">
+            {emailselected && <h5>Email</h5>}
+
+            <input
+              type="text"
+              placeholder="email"
+              onFocus={(e) => (e.target.placeholder = "")}
+              onBlur={(e) => (e.target.placeholder = "Email")}
+              onChange={(e) =>
+                setregister({ ...register, email: e.target.value })
+              }
+              onClick={() => setEmailselected(true)}
+            />
+          </div>
+          <div className="register__inpt">
+            {passwordselected && <h5>Mot de passe</h5>}
+            <input
+              type="password"
+              placeholder="Mot de passe"
+              onFocus={(e) => (e.target.placeholder = "")}
+              onBlur={(e) => (e.target.placeholder = "Mot de passe")}
+              onChange={(e) =>
+                setregister({ ...register, password: e.target.value })
+              }
+              onClick={() => setPasswordselected(true)}
+            />
+          </div>
+        </div>
+        <div className="rg_log">
+          <div className="register__footer">
+            <Link to="/login">
+              <button>Vous avez déjà un compte?</button>
+            </Link>
+            <button
+              onClick={() => {
+                dispatch(userRegister(register));
+                setTimeout(() => {
+                  navigate("/profil");
+                }, 1500);
+              }}
+            >
+              Register
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

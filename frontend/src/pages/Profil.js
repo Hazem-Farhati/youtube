@@ -5,9 +5,11 @@ import "../styles/profil.css";
 import { updateUser } from "../redux/userSlice/userSlice";
 import axios from "axios";
 import CounterUser from "../component/CounterUser";
+import { updateProduct } from "../redux/productSlice/productSlice";
 const Profil = ({ping,setPing,setsearch}) => {
   const user = useSelector((state) => state.user?.user);
-  const [show, setShow] = useState(false);
+    const product = useSelector((state) => state.product?.product);
+const [show, setShow] = useState(false);
   const location = useLocation()
   const dispatch = useDispatch()
 const isAuth=localStorage.getItem('token')
@@ -35,6 +37,19 @@ const [file, setFile] = useState("");
            
           })
         );
+             {
+          product?.filter((el)=>el?.user_id == user?._id).map((el) => {
+                   dispatch(
+                     updateProduct({
+                       ...product,
+                       product: { user_image: result.data.secure_url },
+                       id: el?._id,
+                     })
+                   );
+               });
+             }
+
+        
         // console.log(url, "url");
       })
       .catch((err) => console.log(err));

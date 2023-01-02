@@ -17,6 +17,9 @@ const Login = () => {
   // email input selected
   const [emailselected, setEmailselected] = useState(false);
 
+  //password input selected
+  const [passwordselected, setPasswordselected] = useState(false)
+
   //when i put email and click next for add password
   const [next, setNext] = useState(true);
 
@@ -26,6 +29,10 @@ const Login = () => {
   //error message if email is not definded
   const [saveemail, setSaveemail] = useState("");
   const [emailerror, setEmailerror] = useState(false);
+
+  //show password when i click checkbox
+  const [showpassword, setShowpassword] = useState(false)
+  console.log(showpassword,'show pw');
   return (
     <>
       {next ? (
@@ -40,8 +47,8 @@ const Login = () => {
                   />
                 </div>
 
-                <h1>Sign in</h1>
-                <p>to continue to YouTube</p>
+                <h1>Connexion</h1>
+                <p>Accéder à YouTube</p>
               </div>
               <div className="input">
                 <div className="email__input">
@@ -64,10 +71,13 @@ const Login = () => {
                         Impossible de trouver votre compte Youtube{" "}
                       </h6>
                     )}
-                    <h5>Forgot email?</h5>
+                    <h5>Adresse de courriel oubliée?</h5>
                   </div>
-                  <p>Not your computer? Use Guest mode to sign in privately.</p>
-                  <h5>Learn more</h5>
+                  <p>
+                    Il ne s'agit pas de votre ordinateur? Utilisez le mode
+                    Invité pour vous connecter en privé.
+                  </p>
+                  <h5>En savoir plus</h5>
                 </div>
 
                 {/* <input
@@ -91,7 +101,7 @@ const Login = () => {
                             className="next_btn_true"
                             onClick={() => setNext(false)}
                           >
-                            Next
+                            Suivant
                           </button>
                         </>
                       ) : null}
@@ -100,7 +110,9 @@ const Login = () => {
                   {login?.email !== users?.email ? (
                     <>
                       {" "}
-                      <button onClick={() => setEmailerror(true)}>Next</button>
+                      <button onClick={() => setEmailerror(true)}>
+                        Suivant
+                      </button>
                     </>
                   ) : null}
                 </div>
@@ -131,55 +143,96 @@ const Login = () => {
                     alt="yt"
                   />
                 </div>
-
-                <h1>Sign in</h1>
-                <p>to continue to YouTube</p>
+                {users?.map((el) => (
+                  <>
+                    {" "}
+                    {login?.email == el?.email ? (
+                      <>
+                        <h1>
+                          {el?.name} {el?.lastname}
+                        </h1>
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                          }}
+                        >
+                          <div className="login_email_image">
+                            <img
+                              className="image__log"
+                              src={el?.image}
+                              alt=""
+                            />
+                            <h5>{el?.email}</h5>
+                          </div>
+                        </div>
+                      </>
+                    ) : null}
+                  </>
+                ))}
               </div>
-              <div className="input">
-                {/* <div className="email__input">
-                  {emailselected && <h4>Email</h4>}
-                  <input
-                    type="text"
-                    placeholder="email"
-                    onFocus={(e) => (e.target.placeholder = "")}
-                    onBlur={(e) => (e.target.placeholder = "Email")}
-                    onChange={(e) =>
-                      setlogin({ ...login, email: e.target.value })
-                    }
-                    onClick={() => setEmailselected(true)}
-                  />
-                  <h5>Forgot email?</h5>
-                  <p>Not your computer? Use Guest mode to sign in privately.</p>
-                  <h5>Learn more</h5>
-                </div> */}
-
-                <input
-                  type="password"
-                  placeholder="password"
-                  onChange={(e) =>
-                    setlogin({ ...login, password: e.target.value })
-                  }
-                />
-                <div className="getemail__next">
+              <div className="password__input__login">
+                <div className="password__input">
+                  {passwordselected && <h4>Entrez votre mot de passe</h4>}
+                  {showpassword ? (
+                    <>
+                      {" "}
+                      <input
+                        type="text"
+                        placeholder="Mot de passe"
+                        onFocus={(e) => (e.target.placeholder = "")}
+                        onBlur={(e) => (e.target.placeholder = "Mot de passe")}
+                        onChange={(e) =>
+                          setlogin({ ...login, password: e.target.value })
+                        }
+                        onClick={() => setPasswordselected(true)}
+                      />
+                    </>
+                  ) : (
+                    <>
+                      {" "}
+                      <input
+                        type="password"
+                        placeholder="Mot de passe"
+                        onFocus={(e) => (e.target.placeholder = "")}
+                        onBlur={(e) => (e.target.placeholder = "Mot de passe")}
+                        onChange={(e) =>
+                          setlogin({ ...login, password: e.target.value })
+                        }
+                        onClick={() => setPasswordselected(true)}
+                      />
+                    </>
+                  )}
+                </div>
+                <div className="afficher__mdp">
+                  <div className="afficher__mdp__content">
+                    <input
+                      className="mdp_checked"
+                      type="checkbox"
+                      onClick={() => setShowpassword(!showpassword)}
+                    />
+                    <h5>Afficher le mot de passe</h5>
+                  </div>
+                </div>
+                <div className="mdp__ob__login">
                   {" "}
                   <Link to="/register">
-                    <button>Créer un compt</button>
+                    <button>Mot de passe oublié?</button>
                   </Link>
-                  <button>Next</button>
+                  <button
+                    onClick={() => {
+                      dispatch(userLogin(login));
+                      setTimeout(() => {
+                        navigate("/profil");
+                      }, 1500);
+                    }}
+                  >
+                    Login
+                  </button>
                 </div>
               </div>
-              <div className="footer">
-                <button
-                  onClick={() => {
-                    dispatch(userLogin(login));
-                    setTimeout(() => {
-                      navigate("/profil");
-                    }, 1500);
-                  }}
-                >
-                  Login
-                </button>
-              </div>
+              <div className="footer"></div>
             </div>
           </div>
         </div>
