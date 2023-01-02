@@ -24,7 +24,7 @@ const CounterUser = ({ ping, setPing, el }) => {
   console.log(isSub,"isssub")
   return (
     <div>
-      <div>
+        {isAuth &&<div>
         {count == "0" && isSub == true && (
           <button
             style={{
@@ -145,7 +145,7 @@ const CounterUser = ({ ping, setPing, el }) => {
             Abonner
           </button>
         )}
-
+      
         {count == "1" && isSub == true && (
           <button
             style={{
@@ -184,8 +184,8 @@ const CounterUser = ({ ping, setPing, el }) => {
           </button>
         )}
         {/* <span>{count}</span> */}
-      </div>
-      <div></div>
+      </div> }
+      
     </div>
   );
 };
