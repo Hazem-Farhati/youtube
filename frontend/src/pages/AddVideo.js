@@ -35,6 +35,8 @@ const AddVideo = ({ ping, setPing }) => {
   //calcule nombre de mots
   const [calctitle, setCalctitle] = useState(0);
 
+  //loading upload state 
+  const [loading, setLoading] = useState(false)
   // dsrmckm1q
   // preset name : msa2hvog
   const uploadImage = async () => {
@@ -302,7 +304,7 @@ const AddVideo = ({ ping, setPing }) => {
                             // value={""}
                             onChange={(e) => setFile(e.target.files[0])}
                           />
-                          {console.log(file.name)}
+                          {console.log(file?.name)}
                         </div>
                       </>
                     ) : null}
@@ -348,18 +350,53 @@ const AddVideo = ({ ping, setPing }) => {
                       </div>
                     </div>
                   </div>
-                  <button
-                    className="upload_button"
-                    onClick={() => {
-                      uploadImage();
-                      uploadPoster();
-                    }}
-                  >
-                    Save
-                  </button>
+                  {file == "" ? (
+                    <>
+                      {" "}
+                      <button
+                        style={{ backgroundColor: "gray" }}
+                        className="upload_button"
+                        onClick={() => {
+                          uploadImage();
+                          uploadPoster();
+                          setLoading(true);
+                        }}
+                        disabled={file === ""}
+                      >
+                        Save
+                      </button>
+                    </>
+                  ) : (
+                    <>
+                      {" "}
+                      <button
+                        className="upload_button"
+                        onClick={() => {
+                          uploadImage();
+                          uploadPoster();
+                          setLoading(true);
+                        }}
+                      >
+                        Save
+                      </button>
+                    </>
+                  )}
                 </div>
                 <div className="videouploaded">
                   <iframe src={url} controls="0" frameborder="0" />
+                  {/* ----------upload loading --------------------- */}
+                  {loading && url == "" && (
+                    <div className="upload__loader">
+                      <div className="loader">
+                        <div className="circle"></div>
+                        <div className="circle"></div>
+                        <div className="circle"></div>
+                        <div className="circle"></div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* ---------------end upload loading------------------------- */}
                   <div style={{ overflow: "hidden", width: "95%" }}>
                     {" "}
                     <div className="vd_up_details">

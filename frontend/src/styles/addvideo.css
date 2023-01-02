@@ -32,8 +32,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.073), 0 2px 2px 0 rgba(0, 0, 0, 0.11);
-
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.073), 0 2px 2px 0 rgba(0, 0, 0, 0.11);
 }
 .etpadeaddvideo hr {
   width: 80%;
@@ -176,7 +175,7 @@
   height: 39px;
 }
 .detailsaddvideo .addInput h4 {
- /* background-color: red; */
+  /* background-color: red; */
   width: 40%;
   height: 39px;
 }
@@ -284,67 +283,67 @@
   gap: 15px;
 }
 .confirmaddvideo .telechergement i {
-font-size: 25px;
-font-weight: normal;
-color: #0760d4;
+  font-size: 25px;
+  font-weight: normal;
+  color: #0760d4;
 }
 .confirmaddvideo .telechergement h4 {
-font-weight: normal;
-color: rgb(100, 99, 99);
-margin-top: 7px;
+  font-weight: normal;
+  color: rgb(100, 99, 99);
+  margin-top: 7px;
 }
 .confirmaddvideo .telechergement .mis__enligne {
-background-color: #fff;
+  background-color: #fff;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-width: 270px;
-height: 55px;
-border-radius: 5px;
-position: absolute;
-bottom: 60px;
-display: flex;
-align-items: center;
-justify-content: center;
-z-index: 99999999999999999999999999999999999999999999999999;
+  width: 270px;
+  height: 55px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999999999999999999999999999999999999999999999999;
 }
 .confirmaddvideo .telechergement .traitement__video {
-background-color: #fff;
+  background-color: #fff;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-width: 200px;
-height: 70px;
-border-radius: 5px;
-position: absolute;
-bottom: 60px;
-left: 50px;
-display: flex;
-align-items: center;
-justify-content: center;
-z-index: 99999999999999999999999999999999999999999999999999;
+  width: 200px;
+  height: 70px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 60px;
+  left: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999999999999999999999999999999999999999999999999;
 }
 .confirmaddvideo .telechergement .verification {
-background-color: #fff;
+  background-color: #fff;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-width: 280px;
-height: 85px;
-border-radius: 5px;
-position: absolute;
-bottom: 60px;
-left: 105px;
-display: flex;
-align-items: center;
-justify-content: center;
-flex-wrap: wrap;
-text-align: justify;
-z-index: 99999999999999999999999999999999999999999999999999;
+  width: 280px;
+  height: 85px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 60px;
+  left: 105px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: justify;
+  z-index: 99999999999999999999999999999999999999999999999999;
 }
 .confirmaddvideo .telechergement .verification h4 {
   width: 80%;
-text-align: justify;
-color: #000000;
+  text-align: justify;
+  color: #000000;
 }
 .confirmaddvideo .telechergement .verification p {
-text-align: justify; 
-width: 80%;
-color:#00000098;
+  text-align: justify;
+  width: 80%;
+  color: #00000098;
 }
 
 .detailsaddvideo .videouploaded {
@@ -354,6 +353,7 @@ color:#00000098;
   margin-left: 20px;
   margin-top: 30px;
   overflow: hidden;
+  position: relative;
 }
 .detailsaddvideo .videouploaded iframe {
   width: 100%;
@@ -361,12 +361,12 @@ color:#00000098;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .detailsaddvideo .vd_up_details {
- /* background-color: red; */
- height: max-content;
- padding: 10px;
- position: relative;
+  /* background-color: red; */
+  height: max-content;
+  padding: 10px;
+  position: relative;
 }
-.vd_up_details .uil-copy{
+.vd_up_details .uil-copy {
   font-size: 25px;
   background-color: rgba(255, 255, 255, 0.977);
   left: 80px;
@@ -414,3 +414,78 @@ input[type="file"]::file-selector-button {
   height: 100%;
   border-radius: 5px;
 }
+
+/* //-----------------------------loading upload  */
+.upload__loader {
+  width: 90px;
+  height: 90px;
+  /* background-color: red; */
+  position: absolute;
+  top: 0;
+  left: 95px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+.loader {
+  --dim: 3rem;
+  width: var(--dim);
+  height: var(--dim);
+  position: relative;
+  animation: spin988 2s linear infinite;
+}
+
+.loader .circle {
+  --color: #333;
+  --dim: 1.2rem;
+  width: var(--dim);
+  height: var(--dim);
+  background-color: var(--color);
+  border-radius: 50%;
+  position: absolute;
+}
+
+.loader .circle:nth-child(1) {
+  top: 0;
+  left: 0;
+}
+
+.loader .circle:nth-child(2) {
+  top: 0;
+  right: 0;
+}
+
+.loader .circle:nth-child(3) {
+  bottom: 0;
+  left: 0;
+}
+
+.loader .circle:nth-child(4) {
+  bottom: 0;
+  right: 0;
+}
+
+@keyframes spin988 {
+  0% {
+    transform: scale(1) rotate(0);
+  }
+
+  20%, 25% {
+    transform: scale(1.3) rotate(90deg);
+  }
+
+  45%, 50% {
+    transform: scale(1) rotate(180deg);
+  }
+
+  70%, 75% {
+    transform: scale(1.3) rotate(270deg);
+  }
+
+  95%, 100% {
+    transform: scale(1) rotate(360deg);
+  }
+}
+
+/* ---- end upload loading -------------- */
