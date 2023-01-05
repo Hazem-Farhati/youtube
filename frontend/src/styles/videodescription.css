@@ -1,0 +1,22 @@
+.VideoDescription{
+    width: 95%;
+    height: max-content;
+    position: absolute;
+    background-color: #E5E5E5;
+    top: 100px;
+    padding: 20px;
+    border-radius: 10px;
+}
+.VideoDescription .vd_desc_content{
+    padding-right: 100px;
+    /* background-color: #fff; */
+    width: 60%;
+}
+.VideoDescription .vue__date{
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+.VideoDescription .vue__date h3{
+  font-weight: 600;
+}

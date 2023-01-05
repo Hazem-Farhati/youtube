@@ -18,7 +18,7 @@ const LikeDislike = ({ el, ping, setPing }) => {
 
   console.log(countLike, "countlike");
   return (
-    <>
+    <div className="like__dis_patr">
       <div className="video__likes_dis">
         {countLike == "0" && isLiked == false && (
           <>
@@ -117,7 +117,14 @@ const LikeDislike = ({ el, ping, setPing }) => {
           <i class="uil uil-thumbs-down"></i>
         </div>
       </div>
-    </>
+      <div className="partage__btn">
+        <i class="uil uil-share"></i>
+        <button>Partager</button>
+      </div>
+      <div className="threepoint__btn">
+        <button>...</button>
+      </div>
+    </div>
   );
 };
 

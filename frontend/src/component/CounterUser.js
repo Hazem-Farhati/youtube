@@ -37,7 +37,7 @@ const CounterUser = ({ ping, setPing, el }) => {
               marginLeft: "40px",
               position: "absolute",
               left: "250px",
-              top: "680px",
+              top: "5px",
             }}
             aria-label="Increment value"
             onClick={() => {
@@ -74,7 +74,7 @@ const CounterUser = ({ ping, setPing, el }) => {
               marginLeft: "40px",
               position: "absolute",
               left: "250px",
-              top: "680px",
+              top: "5px",
             }}
             aria-label="Increment value"
             onClick={() => {
@@ -116,7 +116,7 @@ const CounterUser = ({ ping, setPing, el }) => {
               marginLeft: "40px",
               position: "absolute",
               left: "250px",
-              top: "680px",
+              top: "5px",
             }}
             aria-label="Increment value"
             onClick={() => {
@@ -158,7 +158,7 @@ const CounterUser = ({ ping, setPing, el }) => {
               marginLeft: "40px",
               position: "absolute",
               left: "250px",
-              top: "680px",
+              top: "5px",
             }}
             aria-label="Increment value"
             onClick={() => {

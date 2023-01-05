@@ -5,6 +5,7 @@ import CardVideo from "../component/CardVideo";
 import CardVideoView from "../component/CardVideoView";
 import CounterUser from "../component/CounterUser";
 import LikeDislike from "../component/LikeDislike";
+import VideoDescription from "../component/VideoDescription";
 import { updateProduct } from "../redux/productSlice/productSlice";
 import "../styles/view.css";
 const View = ({
@@ -54,13 +55,15 @@ const View = ({
               </h4>
               <div
                 style={{
-                  width: "1000%",
+                  width: "95%",
                   height: "70px",
                   display: "flex",
                   justifyContent: "flex-start",
                   alignItems: "flex-start",
-                  gap: "10px",
+                  gap: "14px",
                   marginLeft: "28px",
+
+                  position: "relative",
                 }}
               >
                 <img
@@ -105,6 +108,7 @@ const View = ({
                   </div>
                 </div>
                 <LikeDislike el={el} ping={ping} setPing={setPing} />
+                <VideoDescription el={el} />
               </div>
             </>
           ))
