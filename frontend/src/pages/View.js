@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import CardVideo from "../component/CardVideo";
 import CardVideoView from "../component/CardVideoView";
+import Commentaire from "../component/Commentaire";
 import CounterUser from "../component/CounterUser";
 import LikeDislike from "../component/LikeDislike";
 import VideoDescription from "../component/VideoDescription";
@@ -107,13 +108,16 @@ const View = ({
                       ))}
                   </div>
                 </div>
-                <LikeDislike el={el} ping={ping} setPing={setPing} />
-                <VideoDescription el={el} />
+                <LikeDislike el={el} ping={ping} setPing={setPing} id={id} />
               </div>
             </>
           ))
 
           .reverse()}
+        {product
+          ?.filter((el) => id == el._id)
+          .map((el, i) => <VideoDescription el={el} />)}
+        <Commentaire id={id} />
       </div>
       <div className="view_right_side">
         {product

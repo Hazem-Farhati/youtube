@@ -41,6 +41,7 @@
     gap: 10px;
     margin-left: 10px;
     font-size: 13px;
+    margin-top: 5px;
   }
   .viewdate_v h2 {
     display: flex;
@@ -63,6 +64,7 @@
     width: 70%;
     height: max-content;
     display: flex;
+    margin-left: 10px;
   
   }
   .donne_v .title_v .imgChaine_v{
@@ -83,5 +85,5 @@
     border-radius: 50%;
   }
   .donne_v .chaineuser_v p{
-
+margin-left: 5px;
   }

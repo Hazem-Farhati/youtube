@@ -11,6 +11,8 @@ app.use(cors());
 app.use("/user", require("./routes/user"));
 
 app.use("/product", require("./routes/product"));
+app.use("/commentaire", require("./routes/commentaire"));
+
 app.listen(port, (error) =>
   error ? console.log(error) : console.log("server is connected")
 );

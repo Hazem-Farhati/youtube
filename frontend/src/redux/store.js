@@ -1,4 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
+import commentaireSlice from "./commentaireSlice/commentaireSlice";
 import likeSlice from "./likeSlice/likeSlice";
 import productSlice from "./productSlice/productSlice";
 import counterSlice from "./userSlice/counterSlice";
@@ -10,5 +11,6 @@ export const store = configureStore({
     user: userSlice,
     counter: counterSlice,
     like: likeSlice,
+    commentaire: commentaireSlice,
   },
 });

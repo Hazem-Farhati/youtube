@@ -6,8 +6,10 @@ import {
   selectCountLike,
 } from "../redux/likeSlice/likeSlice";
 import { updateProduct } from "../redux/productSlice/productSlice";
+import { RWebShare } from "react-web-share";
+import { useParams } from "react-router";
 
-const LikeDislike = ({ el, ping, setPing }) => {
+const LikeDislike = ({ el, ping, setPing,id }) => {
   const dispatch = useDispatch();
   const [like, setLike] = useState(el?.like);
   const [isLiked, setIsLiked] = useState(el?.isLiked);
@@ -119,7 +121,17 @@ const LikeDislike = ({ el, ping, setPing }) => {
       </div>
       <div className="partage__btn">
         <i class="uil uil-share"></i>
-        <button>Partager</button>
+        {/* <button>Partager</button> */}
+        <RWebShare
+          data={{
+            text: "Web Share - GfG",
+            url: `http://localhost:3000/view/${el?._id}`,
+            title: el?.title,
+          }}
+          onClick={() => console.log("shared successfully!")}
+        >
+          <button>Partager</button>
+        </RWebShare>
       </div>
       <div className="threepoint__btn">
         <button>...</button>

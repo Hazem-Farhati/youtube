@@ -1,0 +1,118 @@
+.commentaire {
+  /* background-color: red; */
+  width: 88%;
+  height: max-content;
+  margin-top: 15px;
+  padding: 20px 0;
+  margin-left: 50px;
+}
+.commentaire .top__comm {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 30px;
+  height: 40px;
+}
+.commentaire .top__comm .comm_nbr {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 30px;
+  font-size: 20px;
+}
+.commentaire .trier__par {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 40px;
+  font-size: 15px;
+}
+.trier__par .uil-sort-amount-up {
+  font-size: 25px;
+  height: 30px;
+}
+
+/* // -------------add commentaire ----------------------// */
+.add_commentaire {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-top: 10px;
+}
+.add_commentaire img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: flex-start;
+}
+.add_commentaire .add__com_input {
+  width: 100%;
+  max-width: 100%;
+}
+.add_commentaire .add__com_input .InputEmoji {
+  border-color: transparent;
+  border: none;
+  border-bottom: 1px solid black;
+  width: 100%;
+  padding:  0;
+  font-size: 18px;
+  height: max-content;
+    resize: none;
+
+}
+.add_commentaire .add__com_input textarea::placeholder {
+
+  padding:  0;
+
+}
+
+
+.add_commentaire .add__com_input textarea:focus {
+  outline: none;
+}
+.emoj__anull__confir .uil-grin-tongue-wink-alt {
+    font-size: 25px;
+}
+.emoj__anull__confir{
+display: flex;
+align-items: center;
+justify-content: flex-end;
+}
+.emoj__anull__confir .anuul__conf__btn{
+    display: flex;
+align-items: center;
+gap: 10px;
+padding: 5px 10px;
+}
+.anuul__conf__btn .annuler__btn{
+    width: 90px;
+    height: 40px;
+    padding: 5px;
+    font-weight: 600;
+    font-size: 14px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+}
+.anuul__conf__btn .annuler__btn:hover{
+    background-color: #E5E5E5;
+}
+
+.anuul__conf__btn .confirme__btn{
+    width: 200px;
+    height: 40px;
+    padding: 5px;
+    font-weight: 600;
+    font-size: 14px;
+    background-color: #0760D4;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    color: #ffffff;
+}
+.anuul__conf__btn .confirme__btn:hover{
+    background-color: #1058b5;
+}

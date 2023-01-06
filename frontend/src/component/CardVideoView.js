@@ -20,8 +20,8 @@ const CardVideoView = ({ setwidth1, el, width1, width, show, setShow }) => {
             </div>
             <div className="donne_v">
               <div className="title_v">
-                {el?.title.length > 50 ? (
-                  <h3>{el?.title.slice(0, 51) + "..."}</h3>
+                {el?.title.length > 20 ? (
+                  <h3>{el?.title.slice(0, 21) + "..."}</h3>
                 ) : (
                   <h3>{el?.title}</h3>
                 )}

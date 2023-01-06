@@ -1,11 +1,17 @@
 .VideoDescription{
-    width: 95%;
+    width: 88%;
     height: max-content;
-    position: absolute;
+    /* position: absolute; */
     background-color: #E5E5E5;
-    top: 100px;
+    margin-top: 15px;
     padding: 20px;
     border-radius: 10px;
+    margin-left: 45px;
+}
+.VideoDescription:hover{
+
+    background-color: #c0c0c0e2;
+   
 }
 .VideoDescription .vd_desc_content{
     padding-right: 100px;
