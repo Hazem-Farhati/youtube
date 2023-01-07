@@ -4,6 +4,7 @@ import { useParams } from "react-router";
 import CardVideo from "../component/CardVideo";
 import CardVideoView from "../component/CardVideoView";
 import Commentaire from "../component/Commentaire";
+import CommentaireView from "../component/CommentaireView";
 import CounterUser from "../component/CounterUser";
 import LikeDislike from "../component/LikeDislike";
 import VideoDescription from "../component/VideoDescription";
@@ -30,6 +31,8 @@ const View = ({
     setShow(false);
   }, [window]);
   const users = useSelector((state) => state.user?.users);
+  const commentaire = useSelector((state) => state.commentaire?.commentaire);
+  console.log(commentaire, "hello");
   return (
     <div className="all_view">
       {console.log(upId)}
@@ -47,22 +50,23 @@ const View = ({
                   color: "black",
                   fontSize: "18px",
                   fontWeight: "500",
-                  marginLeft: "55px",
+                  marginLeft: "38px",
                   marginTop: "0",
                   marginBottom: "10px",
+                  width: "800px",
                 }}
               >
                 {el?.title}
               </h4>
               <div
                 style={{
-                  width: "95%",
+                  width: "62%",
                   height: "70px",
                   display: "flex",
                   justifyContent: "flex-start",
                   alignItems: "flex-start",
                   gap: "14px",
-                  marginLeft: "28px",
+                  marginLeft: "22px",
 
                   position: "relative",
                 }}
@@ -115,9 +119,11 @@ const View = ({
 
           .reverse()}
         {product
-          ?.filter((el) => id == el._id)
-          .map((el, i) => <VideoDescription el={el} />)}
-        <Commentaire id={id} />
+          ?.filter((el) => id == el?._id)
+          .map((el, i) => (
+            <VideoDescription el={el} />
+          ))}
+        <Commentaire ping={ping} setPing={setPing} id={id} />
       </div>
       <div className="view_right_side">
         {product

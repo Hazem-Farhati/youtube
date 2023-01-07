@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { createCommentaire } from "../redux/commentaireSlice/commentaireSlice";
 import InputEmoji from "react-input-emoji";
 
-const AddCommentaire = ({ id }) => {
+const AddCommentaire = ({ id, ping, setPing }) => {
   const product = useSelector((state) => state.product?.product);
   const user = useSelector((state) => state.user?.user);
   const [commentaireContent, setCommentaireContent] = useState("");
@@ -47,7 +47,10 @@ const AddCommentaire = ({ id }) => {
               <div className="anuul__conf__btn">
                 <button
                   className="annuler__btn"
-                  onClick={() => setShowaddBtn(false)}
+                  onClick={() => {
+                    setShowaddBtn(false);
+                    setCommentaireContent("");
+                  }}
                 >
                   Annuler
                 </button>
@@ -59,26 +62,26 @@ const AddCommentaire = ({ id }) => {
                       cursor: "not-allowed",
                     }}
                     className="confirme__btn"
-                                      onClick={() => {
-                  
+                    onClick={() => {
                       {
                         product
                           ?.filter((el) => id == el._id)
-                          .map((el) =>
-                            dispatch(
-                              createCommentaire({
-                                content: commentaireContent,
-                                user_id: user?._id,
-                                product_id: el?._id,
-                                name: user?.name,
-                                lastname: user?.lastname,
-                                user_img: user?.image,
-                                date: new Date(),
-                              })
-                            )
+                          .map(
+                            (el) =>
+                              dispatch(
+                                createCommentaire({
+                                  content: commentaireContent,
+                                  user_id: user?._id,
+                                  product_id: el?._id,
+                                  name: user?.name,
+                                  lastname: user?.lastname,
+                                  user_img: user?.image,
+                                  date: new Date(),
+                                }),
+                            setPing(!ping)
+                              ),
                           );
-                        };
-                     
+                      }
                     }}
                     disabled={commentaireContent === ""}
                   >
@@ -104,10 +107,10 @@ const AddCommentaire = ({ id }) => {
                               })
                             )
                           );
-                        };
-                           {
-                             setCommentaireContent("");
-                           }
+                      }
+                      {
+                        setCommentaireContent("");
+                      }
                     }}
                   >
                     Ajouter un commentaire

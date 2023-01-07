@@ -8,7 +8,7 @@ const CardVideo = ({ setwidth1, el, width1, width, show, setShow }) => {
     <>
       <Link onClick={() => setShow(false)} to={`/view/${el?._id}`}>
         <div>
-          {!show ? setwidth1("350px") : setwidth1("290px")}
+          {!show ? setwidth1("300px") : setwidth1("250px")}
           <div className="containerCard" style={{ width: width1 }}>
             <div className="video">
               <video

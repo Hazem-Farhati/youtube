@@ -15,13 +15,14 @@ import { getusers, userCurrent } from "./redux/userSlice/userSlice";
 import ProfileAcceuil from "./component/ProfileAcceuil";
 import ProfileVideo from "./component/ProfileVideo";
 import View from "./pages/View";
+import { getCommentaire } from "./redux/commentaireSlice/commentaireSlice";
 
 function App() {
   const users = useSelector((state) => state.user?.users);
   console.log(users,"hellooo")
   const [ping, setPing] = useState(false);
   const isAuth = localStorage.getItem("token");
-  const [width, setwidth] = useState({ width: "80%", width1: "330px" });
+  const [width, setwidth] = useState({ width: "80%", width1: "230px" });
   const [width1, setwidth1] = useState("");
   // {console.log(width1)}
   const [show, setShow] = useState(true);
@@ -33,8 +34,10 @@ function App() {
       dispatch(userCurrent());
     }
     dispatch(getProduct());
+    dispatch(getCommentaire());
     dispatch(getusers())
   }, [dispatch, ping]);
+  console.log(ping,"pinngg")
   const [search, setsearch] = useState("");
 //use location 
     const location = useLocation();

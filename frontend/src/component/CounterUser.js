@@ -13,6 +13,7 @@ import {
 
 const CounterUser = ({ ping, setPing, el }) => {
   const user = useSelector((state) => state.user?.user);
+  const product = useSelector((state) => state.product?.product);
   const users = useSelector((state) => state.user?.users);
   const isAuth = localStorage.getItem("token");
   const navigate = useNavigate();
@@ -24,7 +25,11 @@ const CounterUser = ({ ping, setPing, el }) => {
   console.log(isSub,"isssub")
   return (
     <div>
-        {isAuth &&<div>
+      {isAuth && <div>
+        {/* {product?.filter((el) => user?.id == el.user_id)
+          .map((el) => <>
+          
+          </>)} */}
         {count == "0" && isSub == true && (
           <button
             style={{

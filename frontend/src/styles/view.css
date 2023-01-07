@@ -5,6 +5,8 @@ gap: 15px;
 }
 .view{
     height: max-content;
+    width: 67%;
+    /* background-color: red; */
     margin-top: 20px;
 }
 .view .mainVideo{
@@ -12,13 +14,12 @@ gap: 15px;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-width: 1050px;
+width: 929px;
 height: 550px;
 background-color: transparent;
-    margin-left: 20px;
 }
 .view .mainVideo video{
-    width: 95%;
+    width: 92%;
     height: 91%;             
          margin-bottom: "0px",
 
@@ -48,7 +49,7 @@ margin-top: 20px;
     width: 290px;
     /* background-color: blue; */
     position: absolute;
-    left: 715px;
+    left: 563px;
     top:  0px;
     padding-left: 10px;
     height: 60px;

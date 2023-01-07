@@ -1,0 +1,86 @@
+.commentaire__view {
+    margin-top: 30px;
+    display: flex;
+    gap: 10px;
+}
+.commentaire__view .comm__view__img img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.comm__view__allcontent .comm__view__date__name{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.comm__view__allcontent .comm__view__date__name h3{
+    font-size: 14px;
+}
+.comm__view__content{
+    margin-right: 10px;
+    /* background-color: red; */
+    width: 850px;
+    height: max-content;
+}
+.like_dis_rep{
+    display: flex;
+    align-items: center;
+    font-size: 15px; 
+    gap: 15px;
+    width: 300px;
+    height: max-content;
+    /* background-color: red; */
+    padding: 5px 0;
+}
+.comm__like_numb{
+    display: flex;
+    align-items: center;
+}
+.like_dis_rep .uil-thumbs-up{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px;
+}
+.like_dis_rep .uil-thumbs-up:hover{
+    border-radius: 50%;
+    cursor: pointer;
+    background-color:#E5E5E5 ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.like_dis_rep .uil-thumbs-down{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px;
+
+}
+.like_dis_rep .uil-thumbs-down:hover{
+    border-radius: 50%;
+    cursor: pointer;
+    background-color:#E5E5E5 ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.like_dis_rep h5{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px;
+
+}
+.like_dis_rep h5:hover{
+    border-radius: 20px;
+    cursor: pointer;
+    background-color:#E5E5E5 ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

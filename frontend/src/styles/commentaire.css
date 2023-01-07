@@ -1,10 +1,10 @@
 .commentaire {
   /* background-color: red; */
-  width: 88%;
+  width: 98%;
   height: max-content;
   margin-top: 15px;
   padding: 20px 0;
-  margin-left: 50px;
+  margin-left: 3px;
 }
 .commentaire .top__comm {
   display: flex;
@@ -26,12 +26,36 @@
   justify-content: center;
   height: 40px;
   font-size: 15px;
+  /* background-color: red; */
+  width: max-content;
+  gap: 10px;
+  cursor: pointer;
+  position: relative;
+}
+.commentaire .trier__par .trier_title {
+  font-size: 15px;
+  font-weight: 700;
 }
 .trier__par .uil-sort-amount-up {
   font-size: 25px;
   height: 30px;
+  position: relative;
+  left: 27px;
 }
-
+.trier__par input{
+  width: 80px;
+  height: 30px;
+  cursor: pointer;
+  border: none;
+}
+.trier__par input:focus{
+      outline: none;
+  
+}
+.trier__par input::placeholder{
+  color: black;
+  padding-left: 30px;
+}
 /* // -------------add commentaire ----------------------// */
 .add_commentaire {
   display: flex;
@@ -115,4 +139,52 @@ padding: 5px 10px;
 }
 .anuul__conf__btn .confirme__btn:hover{
     background-color: #1058b5;
+}
+
+.commentaire__container {
+  /* background-color: red; */
+  width: 93%;
+  margin-left: 50px;
+}
+
+/* //----------- tree type ---------- */
+.tree__type{
+  width: 200px;
+  height: 110px;
+  background-color: whitesmoke;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  position: absolute;
+  top: 50px;
+  z-index: 99;
+}
+.tree__type .top_comm {
+
+  padding: 10px 0;
+
+}
+.tree__type .top_comm h5{
+  font-size: 18px;
+  font-weight: 300;
+  padding: 10px 0;
+  width: 100%;
+  text-align: center;
+}
+.tree__type .top_comm h5:hover{
+ background-color: #E5E5E5;
+}
+
+.tree__type .pluc__recent {
+
+  padding-bottom: 10px ;
+
+}
+.tree__type .pluc__recent h5{
+  font-size: 18px;
+  font-weight: 300;
+  padding: 10px 0;
+  width: 100%;
+  text-align: center;
+}
+.tree__type .pluc__recent h5:hover{
+ background-color: #E5E5E5;
 }
