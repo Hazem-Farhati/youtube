@@ -1,10 +1,22 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createCommentaire } from "../redux/commentaireSlice/commentaireSlice";
+import { updateProduct } from "../redux/productSlice/productSlice";
+
 import InputEmoji from "react-input-emoji";
 
-const AddCommentaire = ({ id, ping, setPing }) => {
+const AddCommentaire = ({ id, ping, setPing, setCommNumber, el }) => {
   const product = useSelector((state) => state.product?.product);
+
+  //old comm
+  const [oldCom, setOldCom] = useState(el?.commentaireListe);
+  console.log(oldCom, "old");
+  // {product
+  //   ?.filter((el) => id == el._id)
+  //   .map((el) => ()=> setOldComm(el?.commentaireListe));
+  //   console.log(oldComm,"oldcom");
+  // }
+
   const user = useSelector((state) => state.user?.user);
   const [commentaireContent, setCommentaireContent] = useState("");
   function handleOnEnter(commentaireContent) {
@@ -66,20 +78,20 @@ const AddCommentaire = ({ id, ping, setPing }) => {
                       {
                         product
                           ?.filter((el) => id == el._id)
-                          .map(
-                            (el) =>
-                              dispatch(
-                                createCommentaire({
-                                  content: commentaireContent,
-                                  user_id: user?._id,
-                                  product_id: el?._id,
-                                  name: user?.name,
-                                  lastname: user?.lastname,
-                                  user_img: user?.image,
-                                  date: new Date(),
-                                }),
-                            setPing(!ping)
-                              ),
+                          .map((el) =>
+                            dispatch(
+                              createCommentaire({
+                                content: commentaireContent,
+                                user_id: user?._id,
+                                product_id: el?._id,
+                                name: user?.name,
+                                lastname: user?.lastname,
+                                user_img: user?.image,
+                                date: new Date(),
+                              }),
+
+                              setPing(!ping)
+                            )
                           );
                       }
                     }}
@@ -94,7 +106,7 @@ const AddCommentaire = ({ id, ping, setPing }) => {
                       {
                         product
                           ?.filter((el) => id == el._id)
-                          .map((el) =>
+                          .map((el) => {
                             dispatch(
                               createCommentaire({
                                 content: commentaireContent,
@@ -105,9 +117,27 @@ const AddCommentaire = ({ id, ping, setPing }) => {
                                 user_img: user?.image,
                                 date: new Date(),
                               })
-                            )
-                          );
+                            );
+                              setTimeout(() => {
+                                    dispatch(
+                                      updateProduct({
+                                        ...product,
+                                        id: el._id,
+                                        product: {
+                                      
+                                          commNumber: el?.commNumber + 1,
+                                        },
+                                      }),
+
+                                    );
+                            setPing(!ping);
+
+                              }, 1500);
+                        
+
+                          });
                       }
+
                       {
                         setCommentaireContent("");
                       }
@@ -120,6 +150,9 @@ const AddCommentaire = ({ id, ping, setPing }) => {
             </div>
           )}
         </div>
+        {product?.map((el) => {
+          console.log(el?.commentaireListe, "commliste");
+        })}
       </div>
     </>
   );

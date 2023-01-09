@@ -239,7 +239,7 @@ const AddVideo = ({ ping, setPing }) => {
                       style={{
                         width: "60px",
                         position: "absolute",
-                        left: "435px",
+                        left: "390px",
                         top: "70px",
                         fontWeight: "400",
                       }}
@@ -439,7 +439,7 @@ const AddVideo = ({ ping, setPing }) => {
                       <div style={{ paddingTop: "5px" }}>
                         <h5>Nom du fichier</h5>
 
-                        {file.name}
+                        {file?.name}
                       </div>
                     </div>
                   </div>
